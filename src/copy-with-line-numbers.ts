@@ -3,7 +3,7 @@
 import * as vscode from 'vscode'
 import * as path from 'path'
 import { EOL } from 'os'
-import * as leftPad from 'left-pad'
+import leftPad from 'left-pad'
 
 const COPY_WITH_LINE_NUMBERS = 'extension.copyWithLineNumbers'
 const COPY_WITH_LINE_NUMBERS_WITHOUT_PATH = COPY_WITH_LINE_NUMBERS + '.withoutPath'
