@@ -1,12 +1,10 @@
 ---
-root: false
+root: true
 targets:
   - '*'
 description: "Coding conventions"
 globs:
   - '**/*'
-cursor:
-  alwaysApply: true
 ---
 # Coding conventions
 

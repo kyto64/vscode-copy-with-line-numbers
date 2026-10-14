@@ -36,7 +36,7 @@ Run from the **Command Palette** (all variants). **With Relative Path** is also 
 
 ## Development
 
-Specifications and contributor workflow live under [`docs/`](./docs/) (SSOT). AI settings SSOT is [`.rulesync/`](./.rulesync/); **`AGENTS.md`** and **`.cursor/`** are committed for Cursor (regenerate after SSOT edits — see [docs/development/rulesync.md](./docs/development/rulesync.md)).
+Specifications and contributor workflow live under [`docs/`](./docs/) (SSOT). AI settings SSOT is [`.rulesync/`](./.rulesync/); **`AGENTS.md`** and **`.agents/skills/`** are committed for Devin (regenerate after SSOT edits — see [docs/development/rulesync.md](./docs/development/rulesync.md)).
 
 ```bash
 npm ci

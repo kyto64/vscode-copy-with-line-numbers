@@ -1,12 +1,10 @@
 ---
-root: false
+root: true
 targets:
   - '*'
 description: "Git worktree workflow"
 globs:
   - '**/*'
-cursor:
-  alwaysApply: true
 ---
 # Git worktree workflow
 

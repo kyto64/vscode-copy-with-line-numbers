@@ -3,11 +3,11 @@ images/demo.gif
 .vscode-test/**
 .github/**
 .rulesync/**
-.cursor/**
 AGENTS.md
 .claude/**
 .codex/**
 .agents/**
+.devin/**
 out/test/**
 test/**
 src/**
