@@ -44,22 +44,22 @@
         {
           "command": "extension.copyWithLineNumbers.withoutPath",
           "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@1"
+          "group": "9_cutcopypaste@5"
         },
         {
           "command": "extension.copyWithLineNumbers.withFullPath",
           "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@2"
+          "group": "9_cutcopypaste@6"
         },
         {
           "command": "extension.copyWithLineNumbers.withRelativePath",
           "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@3"
+          "group": "9_cutcopypaste@7"
         },
         {
           "command": "extension.copyWithLineNumbers.withFileName",
           "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@4"
+          "group": "9_cutcopypaste@8"
         }
       ]
     }

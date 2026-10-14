@@ -23,7 +23,7 @@ When a path mode is used, the clipboard text starts with `File: <path>` followed
 
 ## Editor context menu
 
-All four commands appear in the **editor context menu** (right-click) when the editor has focus and a non-empty text selection (`editorTextFocus && editorHasSelection`). Items are grouped with the built-in cut/copy actions (`9_cutcopypaste@1`–`@4`). Menu entries invoke the same command handlers as the Command Palette; behavior is covered by integration tests in `test/suite/copy-with-line-numbers.test.ts`.
+All four commands appear in the **editor context menu** (right-click) when the editor has focus and a non-empty text selection (`editorTextFocus && editorHasSelection`). Items are placed after the built-in Cut / Copy / Copy As / Paste entries (`9_cutcopypaste@5`–`@8`). Menu entries invoke the same command handlers as the Command Palette; clipboard output is covered by integration tests in `test/suite/copy-with-line-numbers.test.ts`, and menu contributions are asserted in `test/suite/package-manifest.test.ts`.
 
 ## Line format
 

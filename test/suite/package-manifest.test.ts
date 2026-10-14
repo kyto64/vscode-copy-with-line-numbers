@@ -9,6 +9,8 @@ const COMMAND_IDS = [
   'extension.copyWithLineNumbers.withFileName',
 ]
 
+const EXPECTED_WHEN = 'editorTextFocus && editorHasSelection'
+
 suite('package manifest', () => {
   test('editor context menu exposes all copy commands when text is selected', () => {
     const manifestPath = path.resolve(__dirname, '../../../package.json')
@@ -27,8 +29,8 @@ suite('package manifest', () => {
 
     contextMenu.forEach((entry, index) => {
       assert.strictEqual(entry.command, COMMAND_IDS[index])
-      assert.match(entry.when ?? '', /editorHasSelection/)
-      assert.match(entry.group ?? '', /^9_cutcopypaste@/)
+      assert.strictEqual(entry.when, EXPECTED_WHEN)
+      assert.strictEqual(entry.group, `9_cutcopypaste@${index + 5}`)
     })
   })
 })
