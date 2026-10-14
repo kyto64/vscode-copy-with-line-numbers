@@ -2,7 +2,7 @@
 
 ## Repository
 
-- **GitHub**: [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers)
+- **GitHub**: [kyto64/vscode-line-ref-copy](https://github.com/kyto64/vscode-line-ref-copy)
 - **Default branch**: `master`
 - **License**: MIT (Copyright yassh and kyto64; see `LICENSE`)
 
@@ -22,7 +22,7 @@ Permissions: `contents: read` at workflow scope; jobs use least privilege. Actio
 | Workflow | Role |
 |----------|------|
 | `ci.yml` | `npm ci`, compile, eslint, `xvfb-run` tests |
-| `check_rulesync.yaml` | `rulesync generate --check` when AI SSOT changes |
+| `check_rulesync.yaml` | `rulesync generate` + diff `AGENTS.md` / `.cursor/` / `.agents/` on every PR |
 | `scorecard.yml` | OpenSSF Scorecard (weekly + `master` push) |
 
 Dependabot (weekly, grouped minor/patch): `.github/dependabot.yml`. Security policy: `SECURITY.md`. Details: [security.md](./security.md).

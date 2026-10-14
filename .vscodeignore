@@ -3,6 +3,7 @@
 .github/**
 .rulesync/**
 .cursor/**
+AGENTS.md
 .claude/**
 .codex/**
 .agents/**
@@ -17,10 +18,5 @@ docs/**
 tsconfig.json
 eslint.config.mjs
 rulesync.jsonc
-AGENTS.md
-CLAUDE.md
-.mcp.json
-vsc-extension-quickstart.md
-images/demo.gif
 .env*
 *.log

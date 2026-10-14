@@ -19,4 +19,4 @@ xvfb-run -a npm test   # Linux headless CI uses the same command
 | `test/suite/package-manifest.test.ts` | `package.json` context menu contributions |
 | `test/fixtures/` | Sample files (UTF-8, CRLF, in/out of workspace) |
 
-Tests assert the full clipboard string, including `File:` headers, `left-pad` line numbers, and multi-selection `---` separators.
+Tests assert the full clipboard string, including `File:` headers, zero-padded line numbers, and multi-selection `---` separators.

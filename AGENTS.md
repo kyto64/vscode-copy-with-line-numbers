@@ -1,29 +1,33 @@
 Please also reference the following rules as needed. The list below is provided in TOON format, and `@` stands for the project root directory.
 
 rules[5]:
-  - path: @.codex/memories/code-style.md
+  - path: @.agents/memories/code-style.md
     description: Coding conventions
     applyTo[1]: **/*
-  - path: @.codex/memories/git-worktree.md
+  - path: @.agents/memories/git-worktree.md
     description: Git worktree workflow
     applyTo[1]: **/*
-  - path: @.codex/memories/git.md
+  - path: @.agents/memories/git.md
     description: Git conventions
     applyTo[1]: **/*
-  - path: @.codex/memories/github-cli-pr.md
+  - path: @.agents/memories/github-cli-pr.md
     description: GitHub CLI — PR and Issues
     applyTo[1]: **/*
-  - path: @.codex/memories/ticket-driven-workflow.md
+  - path: @.agents/memories/ticket-driven-workflow.md
     description: Ticket-driven workflow
     applyTo[1]: **/*
 
+# Additional Conventions Beyond the Built-in Functions
+
+As this project's AI coding tool, you must follow the additional conventions below, in addition to the built-in functions.
+
 <!--
-  SSOT: Edit .rulesync/rules/ and run `rulesync generate`.
-  Generated: CLAUDE.md, AGENTS.md, .claude/, .cursor/rules/, .codex/memories/, .agents/skills/, .mcp.json
+  SSOT: Edit .rulesync/ and run `npm run rules:generate`.
+  Generated for Cursor: AGENTS.md and .cursor/ (see rulesync.jsonc targets).
 -->
 # Project overview
 
-**Line Ref Copy** (`line-ref-copy`) — VS Code extension that copies the current selection to the clipboard with line numbers (and optional file path). Fork maintained at [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers); upstream by [yassh](https://github.com/yassh/vscode-copy-with-line-numbers).
+**Line Ref Copy** (`line-ref-copy`) — VS Code extension that copies the current selection to the clipboard with line numbers (and optional file path). Fork maintained at [kyto64/vscode-line-ref-copy](https://github.com/kyto64/vscode-line-ref-copy); upstream by [yassh](https://github.com/yassh/vscode-copy-with-line-numbers).
 
 ## Tech stack
 
@@ -50,7 +54,7 @@ User-facing install/usage summary remains in [README.md](./README.md).
 
 Ticket-driven development using GitHub Issues. Setup: [docs/development/ticket-driven-setup.md](./docs/development/ticket-driven-setup.md).
 
-Skills (`.claude/skills/`):
+Skills live under `.rulesync/skills/` (SSOT). This repo’s `rulesync.jsonc` generates **Cursor only** (`cursor` + `agentsmd` targets); Claude/Codex outputs are not generated here (differs from [aidd-template-lean](https://github.com/kyto64/aidd-template-lean)).
 
 - `/start-ticket <issue-number>` — start issue, plan, implement, open PR
 - `/address-pr-feedback <pr-number>` — address review feedback
@@ -59,17 +63,11 @@ Skills (`.claude/skills/`):
 
 ### Cursor
 
-- Skills: `.claude/skills/` (Cursor reads them as Agent Skills)
-- Project rules: `.rulesync/rules/` → `rulesync generate` → `.cursor/rules/`
-
-### Codex CLI
-
-- Rules: `.codex/memories/` (generated)
-- Skills: `.agents/skills/` (generated)
+- Project rules: `.rulesync/rules/` → `npm run rules:generate` → `.cursor/rules/` and root `AGENTS.md`
 
 ## AI settings changes
 
-Edit `.rulesync/` only, then `rulesync generate` and commit generated files. Do not edit generated files directly.
+Edit `.rulesync/` only, then `npm run rules:generate`. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.cursor/`** (see `docs/development/rulesync.md`).
 
 ## Language
 

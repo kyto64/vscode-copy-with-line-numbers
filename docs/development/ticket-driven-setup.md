@@ -9,13 +9,13 @@ Setup guide for Claude Code, Cursor, and Codex CLI.
 | Git | Yes |
 | GitHub CLI (`gh`) v2.82.1+ | Yes |
 | rulesync 8.17.0 | Yes (`npm install -g rulesync@8.17.0`) |
-| Node.js 22+ | Yes (for rulesync CI locally) |
+| Node.js 24+ | Yes (matches CI; for rulesync locally) |
 
 ## 1. Repository
 
 This repo adopted [aidd-template-lean](https://github.com/kyto64/aidd-template-lean) for AI settings and `docs/` SSOT. Clone:
 
-`git clone https://github.com/kyto64/vscode-copy-with-line-numbers.git`
+`git clone https://github.com/kyto64/vscode-line-ref-copy.git`
 
 ## 2. Configure GitHub labels
 
@@ -32,19 +32,19 @@ New repositories may have Actions disabled. Enable in repository Settings → Ac
 
 ## 4. Personal MCP (optional)
 
-This template ships an **empty** project `.mcp.json`. Personal MCP servers (e.g. GitHub MCP) stay in your user settings and are not overwritten.
+Project MCP SSOT is `.rulesync/mcp.json` (empty). Claude/Codex MCP outputs are **not** generated in this repo (Cursor-only `rulesync.jsonc`). Personal MCP servers stay in user settings.
 
 ## 5. rulesync
 
 Edit `.rulesync/` only, then:
 
 ```bash
-rulesync generate
-git add .rulesync/ rulesync.jsonc CLAUDE.md AGENTS.md .claude/ .cursor/ .codex/ .agents/ .mcp.json
-git commit -m "chore: sync AI tool settings"
+npm run rules:generate
+git add .rulesync/ rulesync.jsonc AGENTS.md .cursor/ .agents/
+git commit -m "chore: update AI tool SSOT"
 ```
 
-CI runs `rulesync generate --check` on changes to AI config paths.
+CI runs `rulesync generate` and diffs **`AGENTS.md`**, **`.cursor/`**, and **`.agents/`** on every PR (see [rulesync.md](./rulesync.md)).
 
 ## 6. Verify skills
 
@@ -55,7 +55,7 @@ CI runs `rulesync generate --check` on changes to AI config paths.
 | `/close-ticket 1` | Post-merge docs for issue #1 |
 | `/spec-lookup` | Query docs |
 
-Cursor reads `.claude/skills/`; Codex uses `.agents/skills/` after generate.
+Skills live in `.rulesync/skills/`; regenerate rules with `npm run rules:generate` after SSOT edits.
 
 ## 7. Worktree rule
 

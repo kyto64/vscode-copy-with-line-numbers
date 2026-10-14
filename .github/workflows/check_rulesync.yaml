@@ -5,20 +5,6 @@ on:
     branches: [master]
   push:
     branches: [master]
-    paths:
-      - ".rulesync/**"
-      - "rulesync.jsonc"
-      - "CLAUDE.md"
-      - "AGENTS.md"
-      - ".claude/rules/**"
-      - ".claude/skills/**"
-      - ".claude/settings.json"
-      - ".agents/skills/**"
-      - ".mcp.json"
-      - ".codex/memories/**"
-      - ".cursor/rules/**"
-      - ".github/dependabot.yml"
-      - ".github/workflows/check_rulesync.yaml"
 
 env:
   RULESYNC_VERSION: "8.17.0"
@@ -45,9 +31,11 @@ jobs:
       - name: Install rulesync
         run: npm install -g "rulesync@${RULESYNC_VERSION}"
 
-      - name: Check generated AI settings
+      - name: Validate rulesync SSOT (Cursor outputs)
         run: |
-          rulesync generate --check || {
-            echo "::error::AI settings out of sync. Edit .rulesync/, run rulesync generate, commit."
+          rulesync generate
+          git add --intent-to-add -- AGENTS.md .cursor/ .agents/ 2>/dev/null || true
+          if ! git diff --exit-code -- AGENTS.md .cursor/ .agents/; then
+            echo "::error::Cursor rulesync outputs out of sync. Edit .rulesync/, run npm run rules:generate, commit AGENTS.md, .cursor/, and .agents/memories/."
             exit 1
-          }
+          fi

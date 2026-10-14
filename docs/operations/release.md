@@ -55,4 +55,4 @@ A future GitHub Actions workflow may:
 ## Post-publish
 
 - Create a GitHub release with notes from `CHANGELOG.md`.
-- Monitor [GitHub Issues](https://github.com/kyto64/vscode-copy-with-line-numbers/issues) for regressions.
+- Monitor [GitHub Issues](https://github.com/kyto64/vscode-line-ref-copy/issues) for regressions.
