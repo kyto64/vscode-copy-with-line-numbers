@@ -17,7 +17,7 @@ updates:
         update-types:
           - version-update:semver-major
           - version-update:semver-minor
-      # @types/node major: bump manually when CI/toolchain Node major changes (check_rulesync pins 22; ci.yml uses lts/*).
+      # @types/node major: bump manually with CI Node major (Active LTS; see docs/operations/overview.md). Ignore npm latest major.
       - dependency-name: "@types/node"
         update-types:
           - version-update:semver-major
