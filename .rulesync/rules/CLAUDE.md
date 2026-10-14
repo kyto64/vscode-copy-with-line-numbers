@@ -7,7 +7,7 @@ globs:
 ---
 <!--
   SSOT: Edit .rulesync/ and run `npm run rules:generate`.
-  Generated outputs are gitignored (local only); commit .rulesync/ and rulesync.jsonc only.
+  Generated for Cursor: AGENTS.md and .cursor/ (see rulesync.jsonc targets).
 -->
 # Project overview
 
@@ -38,7 +38,7 @@ User-facing install/usage summary remains in [README.md](./README.md).
 
 Ticket-driven development using GitHub Issues. Setup: [docs/development/ticket-driven-setup.md](./docs/development/ticket-driven-setup.md).
 
-Skills (`.claude/skills/`):
+Skills live under `.rulesync/skills/` (SSOT). This repo’s `rulesync.jsonc` generates **Cursor only** (`cursor` + `agentsmd` targets); Claude/Codex outputs are not generated here (differs from [aidd-template-lean](https://github.com/kyto64/aidd-template-lean)).
 
 - `/start-ticket <issue-number>` — start issue, plan, implement, open PR
 - `/address-pr-feedback <pr-number>` — address review feedback
@@ -47,17 +47,11 @@ Skills (`.claude/skills/`):
 
 ### Cursor
 
-- Skills: `.claude/skills/` (Cursor reads them as Agent Skills)
-- Project rules: `.rulesync/rules/` → `rulesync generate` → `.cursor/rules/`
-
-### Codex CLI
-
-- Rules: `.codex/memories/` (generated)
-- Skills: `.agents/skills/` (generated)
+- Project rules: `.rulesync/rules/` → `npm run rules:generate` → `.cursor/rules/` and root `AGENTS.md`
 
 ## AI settings changes
 
-Edit `.rulesync/` only, then `npm run rules:generate`. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.cursor/`** (Cursor cloud agents). Other tool outputs stay gitignored (see `docs/development/rulesync.md`).
+Edit `.rulesync/` only, then `npm run rules:generate`. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.cursor/`** (see `docs/development/rulesync.md`).
 
 ## Language
 

@@ -6,12 +6,6 @@ node_modules
 !.env.example
 .DS_Store
 *.log
-
-# rulesync generated outputs (SSOT: .rulesync/, rulesync.jsonc)
-# Committed for Cursor: AGENTS.md, .cursor/ (see docs/development/rulesync.md)
-.claude/
-.codex/
 .cursor/plans/
+# agentsmd also writes .agents/memories/; only AGENTS.md is committed (see rulesync.jsonc)
 .agents/
-CLAUDE.md
-.mcp.json
