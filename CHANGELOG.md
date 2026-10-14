@@ -16,10 +16,6 @@ First preview release of **Line Ref Copy** (fork of [yassh/vscode-copy-with-line
 - Clipboard I/O uses `vscode.env.clipboard` (UTF-8 safe).
 - Workspace-relative paths use `getWorkspaceFolder` for multi-root workspaces.
 
-### Notes
-
-- Extension icon remains the upstream asset (`images/icon.png`) until a dedicated icon is chosen.
-
 ## Upstream history (yassh)
 
 ### 0.0.4

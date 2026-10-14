@@ -44,6 +44,10 @@ xvfb-run -a npm test   # Linux headless
 npm run vsce:package   # build .vsix (requires compile)
 ```
 
+## Icon
+
+Source artwork: `images/icon.svg` (monochrome **Line Ref Copy** mark). Marketplace asset: `images/icon.png` (256×256). To re-render after editing the SVG: `npx -p sharp node -e "require('sharp')('images/icon.svg').resize(256,256).png().toFile('images/icon.png')"`
+
 ## License
 
 MIT — see [LICENSE](./LICENSE) (Copyright yassh; Copyright kyto64).

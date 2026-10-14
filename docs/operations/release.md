@@ -11,7 +11,7 @@ This document describes **publish preparation** for **Line Ref Copy** (`line-ref
 | Publisher (VS Code Marketplace) | `kyto64` — publisher account exists |
 | Open VSX namespace | **Not** created yet |
 | Version | `0.1.0`, `preview: true` |
-| Icon | Temporary upstream asset (`images/icon.png`); dedicated icon TBD |
+| Icon | `images/icon.svg` (source) → `images/icon.png` (256×256, Marketplace) |
 | LICENSE | MIT — yassh (2017) + kyto64 (2026); credited in README |
 
 ## Local packaging (no publish)
@@ -50,7 +50,7 @@ A future GitHub Actions workflow may:
 - [ ] `npm run lint` and `xvfb-run -a npm test` green on `master`
 - [ ] `npm run vsce:package` succeeds; spot-check `vsce ls`
 - [ ] README credits yassh; LICENSE notices intact
-- [ ] Icon updated if no longer using placeholder (optional for preview)
+- [ ] Regenerate `images/icon.png` from `images/icon.svg` if the artwork changes (`npx -p sharp` one-off; see repo `images/`)
 
 ## Post-publish
 
