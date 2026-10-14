@@ -5,11 +5,11 @@ import * as path from 'path'
 import { EOL } from 'os'
 import leftPad from 'left-pad'
 
-const COPY_WITH_LINE_NUMBERS = 'extension.copyWithLineNumbers'
-const COPY_WITH_LINE_NUMBERS_WITHOUT_PATH = COPY_WITH_LINE_NUMBERS + '.withoutPath'
-const COPY_WITH_LINE_NUMBERS_WITH_FULL_PATH = COPY_WITH_LINE_NUMBERS + '.withFullPath'
-const COPY_WITH_LINE_NUMBERS_WITH_RELATIVE_PATH = COPY_WITH_LINE_NUMBERS + '.withRelativePath'
-const COPY_WITH_LINE_NUMBERS_WITH_FILE_NAME = COPY_WITH_LINE_NUMBERS + '.withFileName'
+const LINE_REF_COPY = 'lineRefCopy'
+const LINE_REF_COPY_WITHOUT_PATH = `${LINE_REF_COPY}.withoutPath`
+const LINE_REF_COPY_WITH_FULL_PATH = `${LINE_REF_COPY}.withFullPath`
+const LINE_REF_COPY_WITH_RELATIVE_PATH = `${LINE_REF_COPY}.withRelativePath`
+const LINE_REF_COPY_WITH_FILE_NAME = `${LINE_REF_COPY}.withFileName`
 
 const OPTION_WITH_FULL_PATH = 'withFullPath'
 const OPTION_WITH_RELATIVE_PATH = 'withRelativePath'
@@ -17,7 +17,7 @@ const OPTION_WITH_FILE_NAME = 'withFileName'
 
 const MULTI_SELECTION_SEPARATOR = '---'
 
-async function copyWithLineNumbers(option?) {
+async function copyLineRef(option?) {
   const editor = vscode.window.activeTextEditor
   if (!editor) {
     vscode.window.showInformationMessage('No editor is active')
@@ -69,7 +69,7 @@ async function copyWithLineNumbers(option?) {
   // https://github.com/mrVanDalo/vscode-copy-with-line-numbers/commit/ed98faa429a2be20bc74f206e8fdb9e8e5e91608
   try {
     await vscode.env.clipboard.writeText(str)
-    const showSuccessMessage = vscode.workspace.getConfiguration('copyWithLineNumbers').get('showSuccessMessage')
+    const showSuccessMessage = vscode.workspace.getConfiguration('lineRefCopy').get('showSuccessMessage')
     if (showSuccessMessage) {
       vscode.window.showInformationMessage('Copied!')
     }
@@ -80,8 +80,8 @@ async function copyWithLineNumbers(option?) {
 }
 
 export const commands = {
-  [COPY_WITH_LINE_NUMBERS_WITHOUT_PATH]: () => copyWithLineNumbers(),
-  [COPY_WITH_LINE_NUMBERS_WITH_FULL_PATH]: () => copyWithLineNumbers(OPTION_WITH_FULL_PATH),
-  [COPY_WITH_LINE_NUMBERS_WITH_RELATIVE_PATH]: () => copyWithLineNumbers(OPTION_WITH_RELATIVE_PATH),
-  [COPY_WITH_LINE_NUMBERS_WITH_FILE_NAME]: () => copyWithLineNumbers(OPTION_WITH_FILE_NAME),
+  [LINE_REF_COPY_WITHOUT_PATH]: () => copyLineRef(),
+  [LINE_REF_COPY_WITH_FULL_PATH]: () => copyLineRef(OPTION_WITH_FULL_PATH),
+  [LINE_REF_COPY_WITH_RELATIVE_PATH]: () => copyLineRef(OPTION_WITH_RELATIVE_PATH),
+  [LINE_REF_COPY_WITH_FILE_NAME]: () => copyLineRef(OPTION_WITH_FILE_NAME),
 }

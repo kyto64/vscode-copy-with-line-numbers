@@ -1,7 +1,7 @@
 'use strict'
 
 import * as vscode from 'vscode'
-import { commands } from './copy-with-line-numbers'
+import { commands } from './line-ref-copy'
 
 export function activate(context: vscode.ExtensionContext) {
   const { registerCommand } = vscode.commands

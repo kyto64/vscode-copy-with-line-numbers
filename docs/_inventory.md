@@ -1,6 +1,6 @@
 # Documentation inventory
 
-Single Source of Truth (SSOT) boundaries for **vscode-copy-with-line-numbers**.
+Single Source of Truth (SSOT) boundaries for **Line Ref Copy** (`line-ref-copy`, fork [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers)).
 
 ## SSOT boundary table
 
@@ -31,7 +31,7 @@ docs/
 | Path | Role |
 |------|------|
 | `src/extension.ts` | `activate` / `deactivate`; registers commands |
-| `src/copy-with-line-numbers.ts` | Selection formatting, clipboard write |
+| `src/line-ref-copy.ts` | Selection formatting, clipboard write |
 | `package.json` | Extension manifest, commands, configuration |
 | `.github/workflows/ci.yml` | `npm ci`, compile, eslint, tests (`xvfb-run`) |
 | `.github/workflows/scorecard.yml` | OpenSSF Scorecard supply-chain analysis |

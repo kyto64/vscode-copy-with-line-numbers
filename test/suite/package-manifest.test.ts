@@ -2,7 +2,7 @@ import * as assert from 'assert'
 import * as fs from 'fs'
 import * as path from 'path'
 
-const CONTEXT_MENU_COMMAND = 'extension.copyWithLineNumbers.withRelativePath'
+const CONTEXT_MENU_COMMAND = 'lineRefCopy.withRelativePath'
 const EXPECTED_WHEN = 'editorTextFocus && editorHasSelection'
 const EXPECTED_GROUP = '9_cutcopypaste@5'
 

@@ -4,7 +4,7 @@
 
 - **GitHub**: [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers)
 - **Default branch**: `master`
-- **License**: MIT (Copyright yassh; see `LICENSE`)
+- **License**: MIT (Copyright yassh and kyto64; see `LICENSE`)
 
 ## CI
 
@@ -63,7 +63,7 @@ npm test          # headless Linux: xvfb-run -a npm test
 
 ## Release / marketplace
 
-Publisher id in `package.json`: `yassh`. `repository`, `bugs`, and `homepage` point at this fork on GitHub. Publishing steps are manual (vsce) unless automated later; document version bumps in `CHANGELOG.md` when cutting releases.
+Publisher id in `package.json`: `kyto64`. Extension id: `line-ref-copy` (**Line Ref Copy**). See [release.md](./release.md) for manual-first publishing (no automated workflow yet). Document version bumps in `CHANGELOG.md` when cutting releases.
 
 ## Incident response
 

@@ -18,7 +18,7 @@ import {
   withFileHeader,
 } from './test-utils'
 
-suite('copyWithLineNumbers', () => {
+suite('lineRefCopy', () => {
   suiteTeardown(async () => {
     await vscode.commands.executeCommand('workbench.action.closeAllEditors')
   })
