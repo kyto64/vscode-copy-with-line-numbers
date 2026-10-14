@@ -34,3 +34,6 @@ docs/
 | `src/copy-with-line-numbers.ts` | Selection formatting, clipboard write |
 | `package.json` | Extension manifest, commands, configuration |
 | `.github/workflows/ci.yml` | `npm ci`, compile, eslint, tests (`xvfb-run`) |
+| `.github/workflows/scorecard.yml` | OpenSSF Scorecard supply-chain analysis |
+| `.github/dependabot.yml` | Weekly npm / github-actions updates |
+| `SECURITY.md` | Vulnerability reporting (English; latest version only) |

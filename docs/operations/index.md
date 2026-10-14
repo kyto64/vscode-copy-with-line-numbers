@@ -7,3 +7,4 @@ Deployment, monitoring, and runbooks.
 | Document | Description |
 |----------|-------------|
 | [overview.md](./overview.md) | CI, local verification, release notes |
+| [security.md](./security.md) | Vulnerability reporting, Dependabot, Action pinning, Scorecard |
