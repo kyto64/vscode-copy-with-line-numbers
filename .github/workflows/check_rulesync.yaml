@@ -1,0 +1,59 @@
+name: Check rulesync
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - ".rulesync/**"
+      - "rulesync.jsonc"
+      - "CLAUDE.md"
+      - "AGENTS.md"
+      - ".claude/rules/**"
+      - ".claude/skills/**"
+      - ".claude/settings.json"
+      - ".agents/skills/**"
+      - ".mcp.json"
+      - ".codex/memories/**"
+      - ".cursor/rules/**"
+      - ".github/workflows/check_rulesync.yaml"
+  push:
+    branches: [master]
+    paths:
+      - ".rulesync/**"
+      - "rulesync.jsonc"
+      - "CLAUDE.md"
+      - "AGENTS.md"
+      - ".claude/rules/**"
+      - ".claude/skills/**"
+      - ".claude/settings.json"
+      - ".agents/skills/**"
+      - ".mcp.json"
+      - ".codex/memories/**"
+      - ".cursor/rules/**"
+      - ".github/workflows/check_rulesync.yaml"
+
+env:
+  RULESYNC_VERSION: "8.17.0"
+
+permissions:
+  contents: read
+
+jobs:
+  check-rulesync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install rulesync
+        run: npm install -g "rulesync@${RULESYNC_VERSION}"
+
+      - name: Check generated AI settings
+        run: |
+          rulesync generate --check || {
+            echo "::error::AI settings out of sync. Edit .rulesync/, run rulesync generate, commit."
+            exit 1
+          }

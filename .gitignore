@@ -1,3 +1,18 @@
 out
 node_modules
+<<<<<<< HEAD
 .vscode-test
+=======
+
+# AIDD template (non-conflicting entries; see PR for .vscode/settings.json)
+.env*
+!.env.example
+.pnpm-store/
+dist/
+coverage/
+.coverage
+htmlcov/
+.DS_Store
+*.log
+.cursor/plans/
+>>>>>>> cdb353f (chore: adopt aidd-template-lean (rulesync, docs SSOT, CI check))

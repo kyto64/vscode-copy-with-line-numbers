@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd *)",
+      "Bash(gh api *)",
+      "Bash(gh issue *)",
+      "Bash(gh pr *)",
+      "Bash(git *)",
+      "Bash(ls *)",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Read",
+      "Write"
+    ],
+    "deny": [
+      "Bash(gh repo delete*)",
+      "Bash(rm -rf /)"
+    ]
+  }
+}
