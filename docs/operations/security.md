@@ -27,7 +27,7 @@ All workflows under `.github/workflows/`:
 | Workflow | Purpose |
 |----------|---------|
 | `ci.yml` | Build, lint, extension tests |
-| `check_rulesync.yaml` | `rulesync generate` + diff `AGENTS.md` / `.cursor/` (every PR) |
+| `check_rulesync.yaml` | `rulesync generate` + diff `AGENTS.md` / `.cursor/` / `.agents/` (every PR) |
 | `scorecard.yml` | OpenSSF Scorecard (`publish_results: true`) |
 
 ## OpenSSF Scorecard

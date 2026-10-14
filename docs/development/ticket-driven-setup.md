@@ -32,7 +32,7 @@ New repositories may have Actions disabled. Enable in repository Settings → Ac
 
 ## 4. Personal MCP (optional)
 
-Project MCP SSOT is `.rulesync/mcp.json` (empty in this template). After `npm run rules:generate`, `.mcp.json` appears locally (gitignored). Personal MCP servers stay in user settings and are not overwritten.
+Project MCP SSOT is `.rulesync/mcp.json` (empty). Claude/Codex MCP outputs are **not** generated in this repo (Cursor-only `rulesync.jsonc`). Personal MCP servers stay in user settings.
 
 ## 5. rulesync
 
@@ -40,11 +40,11 @@ Edit `.rulesync/` only, then:
 
 ```bash
 npm run rules:generate
-git add .rulesync/ rulesync.jsonc AGENTS.md .cursor/
+git add .rulesync/ rulesync.jsonc AGENTS.md .cursor/ .agents/
 git commit -m "chore: update AI tool SSOT"
 ```
 
-CI runs `rulesync generate` and diffs **`AGENTS.md`** and **`.cursor/`** on every PR (see [rulesync.md](./rulesync.md)).
+CI runs `rulesync generate` and diffs **`AGENTS.md`**, **`.cursor/`**, and **`.agents/`** on every PR (see [rulesync.md](./rulesync.md)).
 
 ## 6. Verify skills
 
@@ -55,7 +55,7 @@ CI runs `rulesync generate` and diffs **`AGENTS.md`** and **`.cursor/`** on ever
 | `/close-ticket 1` | Post-merge docs for issue #1 |
 | `/spec-lookup` | Query docs |
 
-Cursor reads `.claude/skills/`; Codex uses `.agents/skills/` after generate.
+Skills live in `.rulesync/skills/`; regenerate rules with `npm run rules:generate` after SSOT edits.
 
 ## 7. Worktree rule
 

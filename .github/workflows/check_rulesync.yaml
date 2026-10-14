@@ -34,8 +34,8 @@ jobs:
       - name: Validate rulesync SSOT (Cursor outputs)
         run: |
           rulesync generate
-          git add --intent-to-add -- AGENTS.md .cursor/ 2>/dev/null || true
-          if ! git diff --exit-code -- AGENTS.md .cursor/; then
-            echo "::error::Cursor rulesync outputs out of sync. Edit .rulesync/, run npm run rules:generate, commit AGENTS.md and .cursor/."
+          git add --intent-to-add -- AGENTS.md .cursor/ .agents/ 2>/dev/null || true
+          if ! git diff --exit-code -- AGENTS.md .cursor/ .agents/; then
+            echo "::error::Cursor rulesync outputs out of sync. Edit .rulesync/, run npm run rules:generate, commit AGENTS.md, .cursor/, and .agents/memories/."
             exit 1
           fi

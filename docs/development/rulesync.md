@@ -9,9 +9,9 @@
 | Target | Features | Committed outputs |
 |--------|----------|-------------------|
 | `cursor` | `rules` | `.cursor/rules/*.mdc` |
-| `agentsmd` | `rules` | `AGENTS.md` (root) |
+| `agentsmd` | `rules` | `AGENTS.md` (root) + `.agents/memories/*.md` (TOON index targets) |
 
-`agentsmd` may also create **`.agents/memories/`** on disk; that directory is **not** committed (listed in `.gitignore`). Claude/Codex files are **not** generated unless you change `rulesync.jsonc`.
+Claude/Codex targets are **off** unless you change `rulesync.jsonc`.
 
 ## SSOT layout
 
@@ -28,7 +28,7 @@ rulesync.jsonc       # Generator config (Cursor + agentsmd only)
 
 1. Edit `.rulesync/rules/` or `.rulesync/skills/` (and `rulesync.jsonc` if needed).
 2. Run `npm run rules:generate`.
-3. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.cursor/`** when outputs change.
+3. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, **`.cursor/`**, and **`.agents/memories/`** when outputs change.
 
 ## After clone
 
@@ -43,7 +43,7 @@ npm ci
 `.github/workflows/check_rulesync.yaml` on every PR:
 
 1. `rulesync generate` (8.17.0)
-2. `git diff --exit-code -- AGENTS.md .cursor/`
+2. `git diff --exit-code -- AGENTS.md .cursor/ .agents/`
 
 ## Cloud agents
 

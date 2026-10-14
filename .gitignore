@@ -7,5 +7,3 @@ node_modules
 .DS_Store
 *.log
 .cursor/plans/
-# agentsmd also writes .agents/memories/; only AGENTS.md is committed (see rulesync.jsonc)
-.agents/
