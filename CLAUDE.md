@@ -25,7 +25,7 @@ rules[5]:
 - Runtime: VS Code Extension API (`vscode` module)
 - Language: TypeScript (compile to `out/`)
 - Clipboard: `vscode.env.clipboard.writeText` (no native `copy-paste` module at runtime)
-- Quality: `tslint` + `tsc`; CI in `.github/workflows/ci.yml`
+- Quality: ESLint 10 + TypeScript 5; CI in `.github/workflows/ci.yml` (compile, lint, `xvfb-run` tests)
 - Issue tracking: GitHub Issues + `gh`
 - AI settings: rulesync (`.rulesync/` → `rulesync generate`)
 
@@ -68,5 +68,8 @@ Edit `.rulesync/` only, then `rulesync generate` and commit generated files. Do 
 
 ## Language
 
-- User-facing docs and PR descriptions: Japanese (unless your team chooses otherwise)
+- `README.md` and `docs/`: English
+- GitHub Issues and PRs: Japanese
 - Code comments: English
+
+See [docs/development/language-policy.md](./docs/development/language-policy.md).

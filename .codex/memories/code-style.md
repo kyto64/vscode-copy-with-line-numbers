@@ -8,7 +8,8 @@
 
 ## Language
 
-- Documentation and PR text: Japanese (team default for this template).
+- `README.md` and `docs/`: English (see [docs/development/language-policy.md](../../docs/development/language-policy.md)).
+- GitHub Issues and PR titles/bodies: Japanese.
 - Code comments and identifiers: English.
 
 ## TypeScript / VS Code extension
@@ -16,9 +17,9 @@
 - Source lives under `src/`; compiled output under `out/` (do not edit `out/` by hand).
 - Use `'use strict'` and existing import style (`import * as vscode from 'vscode'`).
 - Register commands in `src/extension.ts`; command implementation in `src/copy-with-line-numbers.ts`.
-- Follow `tslint` and `tslint-config-airbnb` rules; run `npm run lint` and `npm run compile` before PRs.
+- Follow ESLint (`eslint.config.mjs`, semicolons off, max line length 120); run `npm run lint` and `npm run compile` before PRs.
 
 ## Quality
 
-- Run `npm run compile` and `npm run lint` when behavior changes (matches CI). Use VS Code **Launch Tests** for extension tests; `npm test` only compiles.
+- Run `npm run compile`, `npm run lint`, and `npm test` when behavior changes (matches CI; on Linux use `xvfb-run -a npm test` if needed).
 - Do not commit secrets, tokens, or personal credentials.

@@ -34,9 +34,11 @@ src/copy-with-line-numbers.ts
 
 | Dependency | Role |
 |------------|------|
-| `@types/vscode` / `vscode` (dev, via extension test harness) | Types; test runner entry under `vscode/lib/testrunner` when launched from VS Code |
+| `@types/vscode` (~1.74.0) | VS Code extension API types |
+| `@vscode/test-electron` | CI/local integration test host (`test/runTest.ts`) |
 | `left-pad` | Numeric padding for line numbers (runtime dependency) |
 | `typescript` | Compile to `out/` |
+| `eslint` / `typescript-eslint` | Static analysis (`eslint.config.mjs`) |
 
 Runtime clipboard does **not** use the legacy `copy-paste` npm package; clipboard I/O goes through `vscode.env.clipboard` (see comment in source citing mrVanDalo's MIT-licensed approach).
 

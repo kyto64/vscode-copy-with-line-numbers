@@ -9,8 +9,9 @@ paths:
 - `feature/<issue-number>` — features and enhancements (e.g. `feature/42`)
 - `fix/<issue-number>` — bug fixes
 - `chore/<issue-number>` — tooling, docs-only, dependency chores
+- `cursor/<description>` — **allowed exception** for Cursor Cloud Agent automation (e.g. `cursor/adopt-aidd-template-3092`); not a substitute for human ticket worktrees
 
-Create implementation branches with **git worktree** only (see `git-worktree.md`). Do not `git checkout -b` on the main working tree for ticket work.
+Create implementation branches with **git worktree** only (see `git-worktree.md`). Do not `git checkout -b` on the main working tree for ticket work. Cloud Agent branches under `cursor/` are exempt from the `feature/<issue>` pattern only.
 
 Base branch for PRs: **`master`**.
 

@@ -1,18 +1,8 @@
 out
 node_modules
-<<<<<<< HEAD
 .vscode-test
-=======
-
-# Additional ignores from aidd-template-lean (`.vscode/settings.json` not ignored — file is tracked)
 .env*
 !.env.example
-.pnpm-store/
-dist/
-coverage/
-.coverage
-htmlcov/
 .DS_Store
 *.log
 .cursor/plans/
->>>>>>> cdb353f (chore: adopt aidd-template-lean (rulesync, docs SSOT, CI check))

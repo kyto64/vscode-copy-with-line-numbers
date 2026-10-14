@@ -67,8 +67,8 @@ Execute phases in order. Report completion after each phase.
 
 Run only what exists in the repo:
 
-- If lint/test scripts exist (package.json, Makefile, etc.), run them and report results.
-- If none exist, skip and state "no lint/test toolchain configured" in the PR.
+- This extension: `npm run compile`, `npm run lint` (ESLint), `npm test` (use `xvfb-run -a npm test` on headless Linux).
+- If other scripts exist, run them and report results.
 
 ## Phase 5: PR
 

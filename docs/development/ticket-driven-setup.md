@@ -61,6 +61,12 @@ Cursor reads `.claude/skills/`; Codex uses `.agents/skills/` after generate.
 
 Implementation branches must use git worktree (see `.rulesync/rules/git-worktree.md`). Do not branch on the default-branch working tree (`master`).
 
+**Exception:** Cursor Cloud Agent branches named `cursor/<description>` are allowed without the `feature/<issue>` pattern (see `.rulesync/rules/git.md`).
+
+## 8. Language
+
+See [language-policy.md](./language-policy.md): `docs/` and README in English; Issues and PRs in Japanese.
+
 ## PR and issue linking
 
 - PR body must include `Fixes #<issue>` to auto-close on merge to **`master`**.

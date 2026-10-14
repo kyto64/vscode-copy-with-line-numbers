@@ -33,4 +33,4 @@ docs/
 | `src/extension.ts` | `activate` / `deactivate`; registers commands |
 | `src/copy-with-line-numbers.ts` | Selection formatting, clipboard write |
 | `package.json` | Extension manifest, commands, configuration |
-| `.github/workflows/ci.yml` | `npm ci`, compile, lint |
+| `.github/workflows/ci.yml` | `npm ci`, compile, eslint, tests (`xvfb-run`) |
