@@ -7,7 +7,9 @@ initialize:
   - name: Install xvfb and VS Code test libraries
     run: |
       sudo apt-get update
-      sudo apt-get install -y xvfb libnss3 libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0 libgbm1 libasound2 libxss1
+      # Ubuntu 24.04 renamed libasound2 to libasound2t64; fall back to libasound2 on 22.04.
+      if apt-cache show libasound2t64 >/dev/null 2>&1; then ASOUND=libasound2t64; else ASOUND=libasound2; fi
+      sudo apt-get install -y xvfb libnss3 libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0 libgbm1 "$ASOUND" libxss1
 
 maintenance: |
   npm ci

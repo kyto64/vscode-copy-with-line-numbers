@@ -37,7 +37,7 @@ docs/
 | `.github/workflows/ci.yml` | `npm ci`, compile, eslint, tests (`xvfb-run`) |
 | `.github/workflows/check_rulesync.yaml` | `rulesync generate` + diff `AGENTS.md` / `.agents/` (every PR) |
 | `AGENTS.md`, `.agents/skills/` | Committed rulesync outputs (Devin) |
-| `.devin/blueprint.yaml` | Devin environment (Node 24, xvfb, `npm ci`, lint/build/test knowledge) |
+| `.devin/blueprint.yaml` | Devin environment (Node 24, xvfb, `npm ci`, lint/build/test knowledge); after merge, run a manual **Sync** in the Devin UI (see `docs/development/rulesync.md`) |
 | `.github/workflows/scorecard.yml` | OpenSSF Scorecard supply-chain analysis |
 | `.github/dependabot.yml` | Weekly npm / github-actions updates |
 | `SECURITY.md` | Vulnerability reporting (English; latest version only) |

@@ -59,7 +59,7 @@ Skills live in `.rulesync/skills/` (SSOT) and are generated to `.agents/skills/`
 
 ## 7. Worktree rule
 
-Implementation branches must use git worktree (see `.rulesync/rules/git-worktree.md`). Do not branch on the default-branch working tree (`master`).
+Implementation branches must use git worktree (see **Git worktree workflow** in [`AGENTS.md`](../../AGENTS.md)). Do not branch on the default-branch working tree (`master`).
 
 **Exception:** Devin session branches named `devin/<unix-timestamp>-<description>` are allowed without the `feature/<issue>` pattern (see `.rulesync/rules/git.md`).
 

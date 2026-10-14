@@ -18,7 +18,7 @@ Execute phases in order. Report completion after each phase.
 1. `gh issue view $ARGUMENTS` — read title, body, labels, acceptance criteria
 2. Ensure label `in-progress` exists; create if missing (`gh label create in-progress ...`). On permission error, stop.
 3. `gh issue edit $ARGUMENTS --add-label in-progress`
-4. Resolve main repo root (see `git-worktree.md`):
+4. Resolve main repo root (see **Git worktree workflow** in `AGENTS.md`):
    ```bash
    COMMON=$(git rev-parse --git-common-dir)
    MAIN_ROOT=$(cd "$COMMON/.." && pwd)

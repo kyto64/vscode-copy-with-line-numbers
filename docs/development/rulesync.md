@@ -47,15 +47,25 @@ npm ci
 `.github/workflows/check_rulesync.yaml` on every PR:
 
 1. `rulesync generate` (33.0.0)
-2. `git add --intent-to-add -- AGENTS.md .agents/` (so new generated files are diffed)
-3. `git diff --exit-code -- AGENTS.md .agents/`
+2. `git status --porcelain --untracked-files=all -- AGENTS.md .agents/`
+3. Fail if that output is non-empty (catches modified, deleted, and new/stale untracked outputs)
+
+Local equivalent after `npm run rules:generate`:
+
+```bash
+test -z "$(git status --porcelain --untracked-files=all -- AGENTS.md .agents/)"
+```
 
 ## Devin
 
 Devin reads the root **`AGENTS.md`** and **`.agents/skills/`** from the repository; both are committed. The Devin environment (Node 24, xvfb, VS Code test libraries, `npm ci`, lint/build/test commands) is defined in [`.devin/blueprint.yaml`](../../.devin/blueprint.yaml).
+
+After a change to `.devin/blueprint.yaml` is merged to `master`, run a **manual Sync** of this repository's blueprint in the Devin UI (environment settings) so the next snapshot build picks it up; merging alone does not apply it.
 
 ## Version pin
 
 ```bash
 npm run rules:generate   # npx rulesync@33.0.0
 ```
+
+The version is pinned exactly (no range) in `package.json` and `check_rulesync.yaml`; keep both in sync. 33.0.0 is kept even though it is very recent: rulesync ships a new major almost daily (28.0.0–33.0.0 were all released 2026-10-08 to 2026-10-12), so no older major has meaningfully more soak time, and 33.0.0 was verified to produce the committed outputs. The exact pin plus the CI drift check keeps generation reproducible; bump deliberately and regenerate in the same PR.

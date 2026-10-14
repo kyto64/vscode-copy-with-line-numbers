@@ -8,8 +8,8 @@ globs:
 ---
 # Ticket-driven workflow
 
-- Setup: [docs/development/ticket-driven-setup.md](../../docs/development/ticket-driven-setup.md)
+- Setup: [docs/development/ticket-driven-setup.md](./docs/development/ticket-driven-setup.md)
 - Skills SSOT: `.rulesync/skills/` (`/start-ticket`, `/address-pr-feedback`, `/close-ticket`, `/spec-lookup`)
 - This repo generates Devin-facing outputs only (`rulesync.jsonc`): rules → root `AGENTS.md`, skills → `.agents/skills/`; nothing is exported to `.cursor/` or `.claude/` here
 - Invoke with issue or PR number: `/start-ticket 42`, `/close-ticket 42`
-- PR status/diff/comments: prefer **`gh`** (see `github-cli-pr.md`)
+- PR status/diff/comments: prefer **`gh`** (see **GitHub CLI — PR and Issues** above)

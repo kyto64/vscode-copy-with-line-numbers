@@ -34,8 +34,10 @@ jobs:
       - name: Validate rulesync SSOT (AGENTS.md and .agents/skills/)
         run: |
           rulesync generate
-          git add --intent-to-add -- AGENTS.md .agents/
-          if ! git diff --exit-code -- AGENTS.md .agents/; then
+          status="$(git status --porcelain --untracked-files=all -- AGENTS.md .agents/)"
+          if [ -n "$status" ]; then
+            echo "$status"
+            git diff -- AGENTS.md .agents/
             echo "::error::rulesync outputs out of sync. Edit .rulesync/, run npm run rules:generate, commit AGENTS.md and .agents/skills/."
             exit 1
           fi

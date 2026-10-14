@@ -84,7 +84,7 @@ See [docs/development/language-policy.md](./docs/development/language-policy.md)
 
 ## Language
 
-- `README.md` and `docs/`: English (see [docs/development/language-policy.md](../../docs/development/language-policy.md)).
+- `README.md` and `docs/`: English (see [docs/development/language-policy.md](./docs/development/language-policy.md)).
 - GitHub Issues and PR titles/bodies: Japanese.
 - Code comments and identifiers: English.
 
@@ -166,9 +166,9 @@ git branch -d "$BRANCH"
 - `feature/<issue-number>` — features and enhancements (e.g. `feature/42`)
 - `fix/<issue-number>` — bug fixes
 - `chore/<issue-number>` — tooling, docs-only, dependency chores
-- `devin/<unix-timestamp>-<description>` — **allowed exception** for Devin sessions (Devin's default branch naming, e.g. `devin/1791982074-offboard-cursor-onboard-devin`); not a substitute for human ticket worktrees
+- `devin/<unix-timestamp>-<description>` — **allowed exception** for Devin sessions (Devin's default branch naming, e.g. `devin/1700000000-fix-copy-path`); not a substitute for human ticket worktrees
 
-Create implementation branches with **git worktree** only (see `git-worktree.md`). Do not `git checkout -b` on the main working tree for ticket work. Devin branches under `devin/` are exempt from the `feature/<issue>` pattern only.
+Create implementation branches with **git worktree** only (see **Git worktree workflow** above). Do not `git checkout -b` on the main working tree for ticket work. Devin branches under `devin/` are exempt from the `feature/<issue>` pattern only.
 
 Base branch for PRs: **`master`**.
 
@@ -199,7 +199,7 @@ git add path/to/file1 path/to/file2
 
 - Title: `feat(#42): short summary`
 - Base: `master`
-- Body: follow [`.github/pull_request_template.md`](../../.github/pull_request_template.md)
+- Body: follow [`.github/pull_request_template.md`](./.github/pull_request_template.md)
 - Include `Fixes #<issue>` in the body so GitHub closes the issue on merge to `master`
 
 # GitHub CLI — PR and Issues
@@ -254,8 +254,8 @@ EOF
 
 # Ticket-driven workflow
 
-- Setup: [docs/development/ticket-driven-setup.md](../../docs/development/ticket-driven-setup.md)
+- Setup: [docs/development/ticket-driven-setup.md](./docs/development/ticket-driven-setup.md)
 - Skills SSOT: `.rulesync/skills/` (`/start-ticket`, `/address-pr-feedback`, `/close-ticket`, `/spec-lookup`)
 - This repo generates Devin-facing outputs only (`rulesync.jsonc`): rules → root `AGENTS.md`, skills → `.agents/skills/`; nothing is exported to `.cursor/` or `.claude/` here
 - Invoke with issue or PR number: `/start-ticket 42`, `/close-ticket 42`
-- PR status/diff/comments: prefer **`gh`** (see `github-cli-pr.md`)
+- PR status/diff/comments: prefer **`gh`** (see **GitHub CLI — PR and Issues** above)
