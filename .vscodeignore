@@ -22,3 +22,5 @@ CLAUDE.md
 .mcp.json
 vsc-extension-quickstart.md
 images/demo.gif
+.env*
+*.log
