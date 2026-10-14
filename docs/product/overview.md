@@ -16,7 +16,7 @@ Inspired by [Copy With Line Numbers Reloaded](https://packagecontrol.io/packages
 |------------|-------|----------------|
 | `extension.copyWithLineNumbers.withoutPath` | Copy With Line Numbers: Without Path | (none) |
 | `extension.copyWithLineNumbers.withFullPath` | Copy With Line Numbers: With Full Path | Absolute `document.fileName` |
-| `extension.copyWithLineNumbers.withRelativePath` | Copy With Line Numbers: With Relative Path | Relative to first workspace folder |
+| `extension.copyWithLineNumbers.withRelativePath` | Copy With Line Numbers: With Relative Path | Relative to first workspace folder when one exists; otherwise falls back to the absolute `document.fileName` |
 | `extension.copyWithLineNumbers.withFileName` | Copy With Line Numbers: With File Name | Basename only |
 
 When a path mode is used, the clipboard text starts with `File: <path>` followed by a platform-appropriate newline, then numbered lines.
@@ -24,7 +24,8 @@ When a path mode is used, the clipboard text starts with `File: <path>` followed
 ## Line format
 
 - Each selected line becomes `<padded-line-number>: <line text>`.
-- Padding width is based on the highest line number in the combined selection (supports multiple cursors/selections).
+- Padding width uses the line number of the **last selection’s end line** (selections sorted by `start.line`), not the global max across all ranges. Overlapping multi-cursors can therefore use a narrower width than the longest range alone would need.
+- Pad character is ASCII `0` via `left-pad` (e.g. `008: `).
 - Multiple selections are separated by a line containing `---`.
 
 ## Configuration

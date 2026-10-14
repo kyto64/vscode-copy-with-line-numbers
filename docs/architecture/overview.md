@@ -27,15 +27,15 @@ src/copy-with-line-numbers.ts
 1. **Guard**: If no active editor, show `No editor is active` and return.
 2. **Path header** (optional): Based on command variant, set `file` from `document.fileName`, workspace-relative path, or basename; prefix `File: ${file}${EOL}` when non-empty.
 3. **Selections**: Sort `editor.selections` by start line; for each range, emit lines from `start.line` through `end.line`.
-4. **Numbering**: Use `left-pad` so all line numbers share width up to the largest line number in the selection set.
+4. **Numbering**: Sort selections by `start.line`, take the last selection’s `end.line + 1` as the width reference, then `left-pad` each line number with character `0`.
 5. **Clipboard**: `await vscode.env.clipboard.writeText(str)`; on success optionally show `Copied!` per `copyWithLineNumbers.showSuccessMessage`; on failure show error with message.
 
 ## External dependencies
 
 | Dependency | Role |
 |------------|------|
-| `vscode` (dev) | Extension API types and test runner |
-| `left-pad` | Numeric padding for line numbers |
+| `@types/vscode` / `vscode` (dev, via extension test harness) | Types; test runner entry under `vscode/lib/testrunner` when launched from VS Code |
+| `left-pad` | Numeric padding for line numbers (runtime dependency) |
 | `typescript` | Compile to `out/` |
 
 Runtime clipboard does **not** use the legacy `copy-paste` npm package; clipboard I/O goes through `vscode.env.clipboard` (see comment in source citing mrVanDalo's MIT-licensed approach).

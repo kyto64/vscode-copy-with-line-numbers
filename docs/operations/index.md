@@ -6,4 +6,4 @@ Deployment, monitoring, and runbooks.
 
 | Document | Description |
 |----------|-------------|
-| [overview.md](./overview.md) | Operations overview (placeholder) |
+| [overview.md](./overview.md) | CI, local verification, release notes |

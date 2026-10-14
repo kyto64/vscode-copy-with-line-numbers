@@ -4,7 +4,7 @@ node_modules
 .vscode-test
 =======
 
-# AIDD template (non-conflicting entries; see PR for .vscode/settings.json)
+# Additional ignores from aidd-template-lean (`.vscode/settings.json` not ignored — file is tracked)
 .env*
 !.env.example
 .pnpm-store/

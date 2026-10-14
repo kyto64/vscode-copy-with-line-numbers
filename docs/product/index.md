@@ -6,7 +6,7 @@ Product-facing specifications and requirements.
 
 | Document | Description |
 |----------|-------------|
-| [overview.md](./overview.md) | Product overview (placeholder) |
+| [overview.md](./overview.md) | Commands, configuration, line format |
 
 ## Conventions
 

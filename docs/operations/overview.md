@@ -26,12 +26,13 @@ Separate workflow `.github/workflows/check_rulesync.yaml` validates AI settings 
 npm ci
 npm run compile
 npm run lint
-npm test   # compiles and runs VS Code extension tests (may require display/download in some environments)
 ```
+
+`npm test` in `package.json` only runs `npm run compile` (it does not launch the VS Code extension test host). To run integration tests locally, use the **Launch Tests** configuration in `.vscode/launch.json` (`--extensionTestsPath=out/test`). `test/extension.test.ts` is scaffold-level coverage today.
 
 ## Release / marketplace
 
-Publisher id in `package.json`: `yassh`. Publishing steps are manual (vsce) unless automated later; document version bumps in `CHANGELOG.md` when cutting releases.
+Publisher id in `package.json`: `yassh`. `repository` / `bugs` URLs still point at upstream [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers); this fork is [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers). Publishing steps are manual (vsce) unless automated later; document version bumps in `CHANGELOG.md` when cutting releases.
 
 ## Incident response
 

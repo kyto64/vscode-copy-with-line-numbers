@@ -6,9 +6,9 @@ System design, APIs, and technical decisions.
 
 | Document | Description |
 |----------|-------------|
-| [overview.md](./overview.md) | Architecture overview (placeholder) |
+| [overview.md](./overview.md) | Modules, activation, clipboard pipeline |
 
 ## Conventions
 
 - Record ADR-style decisions here when they affect multiple components.
-- Keep API contracts close to OpenAPI or equivalent when you add them.
+- Extension surface is `package.json` `contributes` and VS Code command IDs (no HTTP API).

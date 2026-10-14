@@ -24,5 +24,5 @@ paths:
 
 ## Quality
 
-- Run `npm run compile`, `npm run lint`, and `npm test` when behavior changes; CI runs compile + lint on `master`.
+- Run `npm run compile` and `npm run lint` when behavior changes (matches CI). Use VS Code **Launch Tests** for extension tests; `npm test` only compiles.
 - Do not commit secrets, tokens, or personal credentials.
