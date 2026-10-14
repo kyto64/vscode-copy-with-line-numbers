@@ -7,6 +7,8 @@ targets:
   - claudecode
   - agentsskills
 disable-model-invocation: true
+devin:
+  triggers: ["user"]
 allowed-tools:
   - Read
   - Write
@@ -54,7 +56,7 @@ Execute phases in order. Report completion after each phase.
 
 ## Phase 2: Plan
 
-1. Read relevant `docs/` (`docs/_inventory.md` → area index → detail files). Use `/spec-lookup` for quick lookups.
+1. Read relevant `docs/` (`docs/_inventory.md` → area index → detail files). Use `@skills:spec-lookup` for quick lookups.
 2. Grep/Glob for affected code paths.
 3. Present implementation plan; wait for user approval if scope is unclear.
 

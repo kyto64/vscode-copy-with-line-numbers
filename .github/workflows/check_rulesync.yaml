@@ -6,9 +6,6 @@ on:
   push:
     branches: [master]
 
-env:
-  RULESYNC_VERSION: "33.0.0"
-
 permissions:
   contents: read
 
@@ -28,12 +25,12 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Install rulesync
-        run: npm install -g "rulesync@${RULESYNC_VERSION}"
+      - name: Install dependencies
+        run: npm ci
 
       - name: Validate rulesync SSOT (AGENTS.md and .agents/skills/)
         run: |
-          rulesync generate
+          npm run rules:generate
           status="$(git status --porcelain --untracked-files=all -- AGENTS.md .agents/)"
           if [ -n "$status" ]; then
             echo "$status"

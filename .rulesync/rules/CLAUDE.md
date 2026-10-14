@@ -34,7 +34,7 @@ CI required checks: `build` (`.github/workflows/ci.yml`) and `check-rulesync` (`
 - Clipboard: `vscode.env.clipboard.writeText` (no native `copy-paste` module at runtime)
 - Quality: ESLint 10 + TypeScript 5; CI in `.github/workflows/ci.yml` (compile, lint, `xvfb-run` tests); supply-chain: SHA-pinned Actions, Dependabot, OpenSSF Scorecard (see `docs/operations/security.md`)
 - Issue tracking: GitHub Issues + `gh`
-- AI settings: rulesync (`.rulesync/` → `rulesync generate`)
+- AI settings: rulesync (`.rulesync/` → `npm run rules:generate`)
 
 ## Documentation (SSOT)
 
@@ -54,10 +54,10 @@ Ticket-driven development using GitHub Issues. Setup: [docs/development/ticket-d
 
 Skills live under `.rulesync/skills/` (SSOT). This repo’s `rulesync.jsonc` generates **Devin-facing outputs only** (`agentsmd` rules + `agentsskills` skills); Cursor/Claude/Codex outputs are not generated here (differs from [aidd-template-lean](https://github.com/kyto64/aidd-template-lean)).
 
-- `/start-ticket <issue-number>` — start issue, plan, implement, open PR
-- `/address-pr-feedback <pr-number>` — address review feedback
-- `/close-ticket <issue-number>` — post-merge docs update
-- `/spec-lookup` — answer from `docs/` (code when needed)
+- `@skills:start-ticket <issue-number>` — start issue, plan, implement, open PR
+- `@skills:address-pr-feedback <pr-number>` — address review feedback
+- `@skills:close-ticket <issue-number>` — post-merge docs update
+- `@skills:spec-lookup` — answer from `docs/` (code when needed)
 
 ### Devin
 

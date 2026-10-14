@@ -13,9 +13,9 @@ globs:
 - `feature/<issue-number>` — features and enhancements (e.g. `feature/42`)
 - `fix/<issue-number>` — bug fixes
 - `chore/<issue-number>` — tooling, docs-only, dependency chores
-- `devin/<unix-timestamp>-<description>` — **allowed exception** for Devin sessions (Devin's default branch naming, e.g. `devin/1700000000-fix-copy-path`); not a substitute for human ticket worktrees
+- `devin/<unix-timestamp>-<description>` — **branch naming exception only** for Devin sessions (e.g. `devin/1700000000-fix-copy-path`); a linked worktree is still required
 
-Create implementation branches with **git worktree** only (see **Git worktree workflow** above). Do not `git checkout -b` on the main working tree for ticket work. Devin branches under `devin/` are exempt from the `feature/<issue>` pattern only.
+Create implementation branches with **git worktree** only (see **Git worktree workflow** above). Devin must replace its generic `git checkout -b` command with `git worktree add -b`, not branch on the main working tree. This also applies to docs/config work without an issue.
 
 Base branch for PRs: **`master`**.
 

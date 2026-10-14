@@ -23,6 +23,7 @@ Other differences from the template:
 .rulesync/
 ├── rules/           # Project rules (all root: true; incl. CLAUDE.md overview)
 ├── skills/          # Agent skills → .agents/skills/
+├── apply-devin-frontmatter.mjs # Copies Devin-specific skill fields from SSOT
 ├── mcp.json         # Project MCP (empty; unused)
 └── permissions.json # Permissions (unused)
 rulesync.jsonc       # Generator config (agentsmd + agentsskills only)
@@ -33,6 +34,15 @@ rulesync.jsonc       # Generator config (agentsmd + agentsskills only)
 1. Edit `.rulesync/rules/` or `.rulesync/skills/` (and `rulesync.jsonc` if needed).
 2. Run `npm run rules:generate`.
 3. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.agents/skills/`** when outputs change.
+
+### Devin skill frontmatter
+
+rulesync 33.0.0's `agentsskills` target does not export Devin's `triggers` or the root-level `allowed-tools` field. Keep Devin-specific fields in each SSOT skill's `devin:` block. `npm run rules:generate` runs rulesync, then `.rulesync/apply-devin-frontmatter.mjs` merges that block into the generated frontmatter without changing the skill body. Do not edit generated skills by hand or use bare `rulesync generate` as the complete generation command.
+
+- `start-ticket`, `close-ticket`, and `address-pr-feedback`: `devin.triggers: ["user"]` prevents automatic invocation.
+- `spec-lookup`: `devin.allowed-tools: [Read, Grep, Glob]` preserves read-only access.
+
+The adapter reads YAML with the direct dev dependency `js-yaml`; CI uses the same npm command as local generation. These fields follow [Devin Skills](https://docs.devin.ai/product-guides/skills).
 
 ## After clone
 
@@ -46,7 +56,7 @@ npm ci
 
 `.github/workflows/check_rulesync.yaml` on every PR:
 
-1. `rulesync generate` (33.0.0)
+1. `npm ci`, then `npm run rules:generate` (rulesync 33.0.0 + Devin frontmatter adapter)
 2. `git status --porcelain --untracked-files=all -- AGENTS.md .agents/`
 3. Fail if that output is non-empty (catches modified, deleted, and new/stale untracked outputs)
 
@@ -68,4 +78,4 @@ After a change to `.devin/blueprint.yaml` is merged to `master`, run a **manual 
 npm run rules:generate   # npx rulesync@33.0.0
 ```
 
-The version is pinned exactly (no range) in `package.json` and `check_rulesync.yaml`; keep both in sync. 33.0.0 is kept even though it is very recent: rulesync ships a new major almost daily (28.0.0–33.0.0 were all released 2026-10-08 to 2026-10-12), so no older major has meaningfully more soak time, and 33.0.0 was verified to produce the committed outputs. The exact pin plus the CI drift check keeps generation reproducible; bump deliberately and regenerate in the same PR.
+The version is pinned exactly (no range) in `package.json`; `check_rulesync.yaml` runs that same npm script rather than maintaining a second version pin. 33.0.0 is kept even though it is very recent: rulesync ships a new major almost daily (28.0.0–33.0.0 were all released 2026-10-08 to 2026-10-12), so no older major has meaningfully more soak time, and 33.0.0 was verified to produce the committed outputs. The exact pin plus the CI drift check keeps generation reproducible; bump deliberately and regenerate in the same PR.

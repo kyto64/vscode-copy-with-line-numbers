@@ -10,11 +10,13 @@ globs:
 
 ## Rules (NEVER / ALWAYS)
 
-When starting ticket work:
+When starting implementation work (including Devin sessions, docs/config changes, and work without an issue):
 
 - **NEVER** run `git checkout -b`, `git switch -c`, or equivalent on the **main repository working tree**.
 - **ALWAYS** create a worktree with `git worktree add -b <branch> <worktrees-dir>/<dir> origin/master`.
 - **ALWAYS** `cd` into that worktree before Edit / Write / Bash for implementation.
+
+Devin's generic `git checkout -b devin/<unix-timestamp>-<description>` instruction does **not** waive this rule. In this repository, use `git worktree add -b` with the same branch name instead, then work inside the linked worktree. The `devin/` exception changes branch naming only, not where implementation happens.
 
 ## Resolve main repository root
 
@@ -40,13 +42,14 @@ git worktree list
 ```
 
 - If `pwd` is under `${WORKTREES_ROOT}/` → OK, continue.
-- If `pwd` is the main repo root and you are starting ticket implementation → **STOP**, create worktree first.
+- If `pwd` is the main repo root and you are starting implementation → **STOP**, create worktree first.
 
 ## Create worktree
 
 ```bash
 ISSUE=42
 BRANCH="feature/${ISSUE}"
+# For Devin: BRANCH="devin/$(date +%s)-<description>"
 DIR=$(echo "$BRANCH" | tr '/' '-')
 mkdir -p "$WORKTREES_ROOT"
 git fetch origin

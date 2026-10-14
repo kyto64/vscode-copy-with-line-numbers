@@ -1,8 +1,9 @@
 ---
 name: address-pr-feedback
-description: >
-  Address review comments on a pull request: triage, implement fixes, push,
-  reply on threads.
+description: |
+  Address review comments on a pull request: triage, implement fixes, push, reply on threads.
+triggers:
+  - user
 ---
 # Address PR feedback
 

@@ -6,6 +6,8 @@ targets:
   - claudecode
   - agentsskills
 disable-model-invocation: true
+devin:
+  triggers: ["user"]
 allowed-tools:
   - Read
   - Write

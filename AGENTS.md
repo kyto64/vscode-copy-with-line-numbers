@@ -31,7 +31,7 @@ CI required checks: `build` (`.github/workflows/ci.yml`) and `check-rulesync` (`
 - Clipboard: `vscode.env.clipboard.writeText` (no native `copy-paste` module at runtime)
 - Quality: ESLint 10 + TypeScript 5; CI in `.github/workflows/ci.yml` (compile, lint, `xvfb-run` tests); supply-chain: SHA-pinned Actions, Dependabot, OpenSSF Scorecard (see `docs/operations/security.md`)
 - Issue tracking: GitHub Issues + `gh`
-- AI settings: rulesync (`.rulesync/` → `rulesync generate`)
+- AI settings: rulesync (`.rulesync/` → `npm run rules:generate`)
 
 ## Documentation (SSOT)
 
@@ -51,10 +51,10 @@ Ticket-driven development using GitHub Issues. Setup: [docs/development/ticket-d
 
 Skills live under `.rulesync/skills/` (SSOT). This repo’s `rulesync.jsonc` generates **Devin-facing outputs only** (`agentsmd` rules + `agentsskills` skills); Cursor/Claude/Codex outputs are not generated here (differs from [aidd-template-lean](https://github.com/kyto64/aidd-template-lean)).
 
-- `/start-ticket <issue-number>` — start issue, plan, implement, open PR
-- `/address-pr-feedback <pr-number>` — address review feedback
-- `/close-ticket <issue-number>` — post-merge docs update
-- `/spec-lookup` — answer from `docs/` (code when needed)
+- `@skills:start-ticket <issue-number>` — start issue, plan, implement, open PR
+- `@skills:address-pr-feedback <pr-number>` — address review feedback
+- `@skills:close-ticket <issue-number>` — post-merge docs update
+- `@skills:spec-lookup` — answer from `docs/` (code when needed)
 
 ### Devin
 
@@ -104,11 +104,13 @@ See [docs/development/language-policy.md](./docs/development/language-policy.md)
 
 ## Rules (NEVER / ALWAYS)
 
-When starting ticket work:
+When starting implementation work (including Devin sessions, docs/config changes, and work without an issue):
 
 - **NEVER** run `git checkout -b`, `git switch -c`, or equivalent on the **main repository working tree**.
 - **ALWAYS** create a worktree with `git worktree add -b <branch> <worktrees-dir>/<dir> origin/master`.
 - **ALWAYS** `cd` into that worktree before Edit / Write / Bash for implementation.
+
+Devin's generic `git checkout -b devin/<unix-timestamp>-<description>` instruction does **not** waive this rule. In this repository, use `git worktree add -b` with the same branch name instead, then work inside the linked worktree. The `devin/` exception changes branch naming only, not where implementation happens.
 
 ## Resolve main repository root
 
@@ -134,13 +136,14 @@ git worktree list
 ```
 
 - If `pwd` is under `${WORKTREES_ROOT}/` → OK, continue.
-- If `pwd` is the main repo root and you are starting ticket implementation → **STOP**, create worktree first.
+- If `pwd` is the main repo root and you are starting implementation → **STOP**, create worktree first.
 
 ## Create worktree
 
 ```bash
 ISSUE=42
 BRANCH="feature/${ISSUE}"
+# For Devin: BRANCH="devin/$(date +%s)-<description>"
 DIR=$(echo "$BRANCH" | tr '/' '-')
 mkdir -p "$WORKTREES_ROOT"
 git fetch origin
@@ -166,9 +169,9 @@ git branch -d "$BRANCH"
 - `feature/<issue-number>` — features and enhancements (e.g. `feature/42`)
 - `fix/<issue-number>` — bug fixes
 - `chore/<issue-number>` — tooling, docs-only, dependency chores
-- `devin/<unix-timestamp>-<description>` — **allowed exception** for Devin sessions (Devin's default branch naming, e.g. `devin/1700000000-fix-copy-path`); not a substitute for human ticket worktrees
+- `devin/<unix-timestamp>-<description>` — **branch naming exception only** for Devin sessions (e.g. `devin/1700000000-fix-copy-path`); a linked worktree is still required
 
-Create implementation branches with **git worktree** only (see **Git worktree workflow** above). Do not `git checkout -b` on the main working tree for ticket work. Devin branches under `devin/` are exempt from the `feature/<issue>` pattern only.
+Create implementation branches with **git worktree** only (see **Git worktree workflow** above). Devin must replace its generic `git checkout -b` command with `git worktree add -b`, not branch on the main working tree. This also applies to docs/config work without an issue.
 
 Base branch for PRs: **`master`**.
 
@@ -255,7 +258,7 @@ EOF
 # Ticket-driven workflow
 
 - Setup: [docs/development/ticket-driven-setup.md](./docs/development/ticket-driven-setup.md)
-- Skills SSOT: `.rulesync/skills/` (`/start-ticket`, `/address-pr-feedback`, `/close-ticket`, `/spec-lookup`)
+- Skills SSOT: `.rulesync/skills/` (`@skills:start-ticket`, `@skills:address-pr-feedback`, `@skills:close-ticket`, `@skills:spec-lookup`)
 - This repo generates Devin-facing outputs only (`rulesync.jsonc`): rules → root `AGENTS.md`, skills → `.agents/skills/`; nothing is exported to `.cursor/` or `.claude/` here
-- Invoke with issue or PR number: `/start-ticket 42`, `/close-ticket 42`
+- Invoke with issue or PR number: `@skills:start-ticket 42`, `@skills:close-ticket 42`
 - PR status/diff/comments: prefer **`gh`** (see **GitHub CLI — PR and Issues** above)

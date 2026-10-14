@@ -44,24 +44,24 @@ git add .rulesync/ rulesync.jsonc AGENTS.md .agents/
 git commit -m "chore: update AI tool SSOT"
 ```
 
-CI runs `rulesync generate` and diffs **`AGENTS.md`** and **`.agents/`** on every PR (see [rulesync.md](./rulesync.md)).
+CI runs `npm run rules:generate` (rulesync + Devin frontmatter adapter) and checks **`AGENTS.md`** and **`.agents/`** on every PR (see [rulesync.md](./rulesync.md)).
 
 ## 6. Verify skills
 
 | Skill | Usage |
 |-------|--------|
-| `/start-ticket 1` | Start issue #1 |
-| `/address-pr-feedback 1` | Address PR #1 reviews |
-| `/close-ticket 1` | Post-merge docs for issue #1 |
-| `/spec-lookup` | Query docs |
+| `@skills:start-ticket 1` | Start issue #1 |
+| `@skills:address-pr-feedback 1` | Address PR #1 reviews |
+| `@skills:close-ticket 1` | Post-merge docs for issue #1 |
+| `@skills:spec-lookup` | Query docs |
 
 Skills live in `.rulesync/skills/` (SSOT) and are generated to `.agents/skills/`; regenerate with `npm run rules:generate` after SSOT edits.
 
 ## 7. Worktree rule
 
-Implementation branches must use git worktree (see **Git worktree workflow** in [`AGENTS.md`](../../AGENTS.md)). Do not branch on the default-branch working tree (`master`).
+Implementation branches must use git worktree, including Devin sessions and docs/config changes without an issue (see **Git worktree workflow** in [`AGENTS.md`](../../AGENTS.md)). Do not branch on the main repository working tree.
 
-**Exception:** Devin session branches named `devin/<unix-timestamp>-<description>` are allowed without the `feature/<issue>` pattern (see `.rulesync/rules/git.md`).
+**Branch naming exception only:** Devin session branches named `devin/<unix-timestamp>-<description>` are allowed without the `feature/<issue>` pattern. Replace Devin's generic `git checkout -b` command with `git worktree add -b` using that name, then work inside the linked worktree; this is not an exemption from the worktree requirement.
 
 ## 8. Language
 
@@ -70,4 +70,4 @@ See [language-policy.md](./language-policy.md): `docs/` and README in English; I
 ## PR and issue linking
 
 - PR body must include `Fixes #<issue>` to auto-close on merge to **`master`**.
-- `/close-ticket` updates docs after merge; it does not replace the merge keyword.
+- `@skills:close-ticket` updates docs after merge; it does not replace the merge keyword.
