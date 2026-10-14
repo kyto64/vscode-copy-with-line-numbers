@@ -17,9 +17,15 @@ Workflow: `.github/workflows/ci.yml`
 | Lint | `npm run lint` (`eslint .` via `eslint.config.mjs`) |
 | Test | `xvfb-run -a npm test` |
 
-Permissions: `contents: read` only.
+Permissions: `contents: read` at workflow scope; jobs use least privilege. Actions are pinned to commit SHAs; checkout sets `persist-credentials: false`.
 
-Separate workflow `.github/workflows/check_rulesync.yaml` validates AI settings when `.rulesync/` or generated agent files change.
+| Workflow | Role |
+|----------|------|
+| `ci.yml` | `npm ci`, compile, eslint, `xvfb-run` tests |
+| `check_rulesync.yaml` | `rulesync generate --check` when AI SSOT changes |
+| `scorecard.yml` | OpenSSF Scorecard (weekly + `master` push) |
+
+Dependabot (weekly, grouped minor/patch): `.github/dependabot.yml`. Security policy: `SECURITY.md`. Details: [security.md](./security.md).
 
 ## Local verification
 
