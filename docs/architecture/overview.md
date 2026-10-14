@@ -5,7 +5,7 @@ VS Code extension with a thin activation layer and a single command module.
 ## Components
 
 ```
-package.json (manifest, contributes.commands / configuration)
+package.json (manifest, contributes.commands / menus / configuration)
         │
         ▼
 src/extension.ts          activate() → registerCommand for each entry in commands map
@@ -20,7 +20,7 @@ src/copy-with-line-numbers.ts
 ## Activation
 
 - `main`: `./out/src/extension` (compiled from `src/extension.ts`).
-- Commands are registered in `activate()` (`src/extension.ts`). The manifest lists `contributes.commands` only (no explicit `activationEvents`; VS Code uses implicit `onCommand` activation for contributed commands).
+- Commands are registered in `activate()` (`src/extension.ts`). The manifest lists `contributes.commands` and `contributes.menus` (`editor/context`; no explicit `activationEvents`; VS Code uses implicit `onCommand` activation for contributed commands).
 
 ## Copy pipeline
 
