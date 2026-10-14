@@ -5,7 +5,7 @@ VS Code extension with a thin activation layer and a single command module.
 ## Components
 
 ```
-package.json (manifest, contributes.commands / configuration)
+package.json (manifest, contributes.commands / menus / configuration)
         │
         ▼
 src/extension.ts          activate() → registerCommand for each entry in commands map

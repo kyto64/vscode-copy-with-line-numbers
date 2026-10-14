@@ -21,6 +21,10 @@ Inspired by [Copy With Line Numbers Reloaded](https://packagecontrol.io/packages
 
 When a path mode is used, the clipboard text starts with `File: <path>` followed by a platform-appropriate newline, then numbered lines.
 
+## Editor context menu
+
+All four commands appear in the **editor context menu** (right-click) when the editor has focus and a non-empty text selection (`editorTextFocus && editorHasSelection`). Items are grouped with the built-in cut/copy actions (`9_cutcopypaste@1`–`@4`). Menu entries invoke the same command handlers as the Command Palette; behavior is covered by integration tests in `test/suite/copy-with-line-numbers.test.ts`.
+
 ## Line format
 
 - Each selected line becomes `<padded-line-number>: <line text>`.

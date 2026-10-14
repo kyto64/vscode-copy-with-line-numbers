@@ -38,7 +38,31 @@
         "command": "extension.copyWithLineNumbers.withFileName",
         "title": "Copy With Line Numbers: With File Name"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.copyWithLineNumbers.withoutPath",
+          "when": "editorTextFocus && editorHasSelection",
+          "group": "9_cutcopypaste@1"
+        },
+        {
+          "command": "extension.copyWithLineNumbers.withFullPath",
+          "when": "editorTextFocus && editorHasSelection",
+          "group": "9_cutcopypaste@2"
+        },
+        {
+          "command": "extension.copyWithLineNumbers.withRelativePath",
+          "when": "editorTextFocus && editorHasSelection",
+          "group": "9_cutcopypaste@3"
+        },
+        {
+          "command": "extension.copyWithLineNumbers.withFileName",
+          "when": "editorTextFocus && editorHasSelection",
+          "group": "9_cutcopypaste@4"
+        }
+      ]
+    }
   },
   "dependencies": {
     "left-pad": "^1.1.3"
