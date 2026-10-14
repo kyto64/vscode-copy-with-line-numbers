@@ -29,7 +29,7 @@ When a path mode is used, the clipboard text starts with `File: <path>` followed
 
 - Each selected line becomes `<padded-line-number>: <line text>`.
 - Padding width uses the line number of the **last selection’s end line** (selections sorted by `start.line`), not the global max across all ranges. Overlapping multi-cursors can therefore use a narrower width than the longest range alone would need.
-- Pad character is ASCII `0` via `left-pad` (e.g. `008: `).
+- Pad character is ASCII `0` via `padStart` (e.g. `008: `).
 - Multiple selections are separated by a line containing `---`.
 
 ## Configuration

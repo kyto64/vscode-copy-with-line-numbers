@@ -9,7 +9,7 @@ Setup guide for Claude Code, Cursor, and Codex CLI.
 | Git | Yes |
 | GitHub CLI (`gh`) v2.82.1+ | Yes |
 | rulesync 8.17.0 | Yes (`npm install -g rulesync@8.17.0`) |
-| Node.js 22+ | Yes (for rulesync CI locally) |
+| Node.js 24+ | Yes (matches CI; for rulesync locally) |
 
 ## 1. Repository
 
@@ -32,19 +32,19 @@ New repositories may have Actions disabled. Enable in repository Settings → Ac
 
 ## 4. Personal MCP (optional)
 
-This template ships an **empty** project `.mcp.json`. Personal MCP servers (e.g. GitHub MCP) stay in your user settings and are not overwritten.
+Project MCP SSOT is `.rulesync/mcp.json` (empty in this template). After `npm run rules:generate`, `.mcp.json` appears locally (gitignored). Personal MCP servers stay in user settings and are not overwritten.
 
 ## 5. rulesync
 
 Edit `.rulesync/` only, then:
 
 ```bash
-rulesync generate
-git add .rulesync/ rulesync.jsonc CLAUDE.md AGENTS.md .claude/ .cursor/ .codex/ .agents/ .mcp.json
-git commit -m "chore: sync AI tool settings"
+npm run rules:generate
+git add .rulesync/ rulesync.jsonc
+git commit -m "chore: update AI tool SSOT"
 ```
 
-CI runs `rulesync generate --check` on changes to AI config paths.
+CI runs `rulesync generate` and `rulesync generate --check` on every PR (generated outputs stay local; see [rulesync.md](./rulesync.md)).
 
 ## 6. Verify skills
 

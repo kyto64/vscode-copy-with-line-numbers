@@ -6,8 +6,8 @@ globs:
   - '**/*'
 ---
 <!--
-  SSOT: Edit .rulesync/rules/ and run `rulesync generate`.
-  Generated: CLAUDE.md, AGENTS.md, .claude/, .cursor/rules/, .codex/memories/, .agents/skills/, .mcp.json
+  SSOT: Edit .rulesync/ and run `npm run rules:generate`.
+  Generated outputs are gitignored (local only); commit .rulesync/ and rulesync.jsonc only.
 -->
 # Project overview
 
@@ -57,7 +57,7 @@ Skills (`.claude/skills/`):
 
 ## AI settings changes
 
-Edit `.rulesync/` only, then `rulesync generate` and commit generated files. Do not edit generated files directly.
+Edit `.rulesync/` only, then `npm run rules:generate`. Commit **only** `.rulesync/` and `rulesync.jsonc`. Do not commit or edit generated outputs (see `docs/development/rulesync.md`).
 
 ## Language
 

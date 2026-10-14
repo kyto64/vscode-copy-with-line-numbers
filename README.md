@@ -4,8 +4,6 @@ Copy selected lines with line numbers and optional file path—ready to paste in
 
 > **Credit:** This extension is a fork of [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers) (MIT). Thank you to the original author **yassh**.
 
-![Demo](images/demo.gif)
-
 ## Changes in this fork (kyto64)
 
 - Renamed to **Line Ref Copy** (`line-ref-copy`, publisher `kyto64`) for separate Marketplace identity.
@@ -34,10 +32,11 @@ Run from the **Command Palette** (all variants). **With Relative Path** is also 
 
 ## Development
 
-Specifications and contributor workflow live under [`docs/`](./docs/). AI tool settings are managed with [rulesync](https://github.com/dyoshikawa/rulesync) from [`.rulesync/`](./.rulesync/) — see [docs/development/rulesync.md](./docs/development/rulesync.md).
+Specifications and contributor workflow live under [`docs/`](./docs/) (SSOT). AI tool settings SSOT is [`.rulesync/`](./.rulesync/); after clone run `npm run rules:generate` (see [docs/development/rulesync.md](./docs/development/rulesync.md)).
 
 ```bash
 npm ci
+npm run rules:generate
 npm run compile
 npm run lint
 xvfb-run -a npm test   # Linux headless

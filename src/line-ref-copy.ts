@@ -3,7 +3,6 @@
 import * as vscode from 'vscode'
 import * as path from 'path'
 import { EOL } from 'os'
-import leftPad from 'left-pad'
 
 const LINE_REF_COPY = 'lineRefCopy'
 const LINE_REF_COPY_WITHOUT_PATH = `${LINE_REF_COPY}.withoutPath`
@@ -58,7 +57,7 @@ async function copyLineRef(option?) {
     if (i > 0) str += `${MULTI_SELECTION_SEPARATOR}${EOL}`
 
     for (let n = selection.start.line; n <= selection.end.line; n += 1) {
-      const number = leftPad(n + 1, largestLineNumberLength, 0)
+      const number = String(n + 1).padStart(largestLineNumberLength, '0')
       const line = document.lineAt(n).text
 
       str += `${number}: ${line}${EOL}`
