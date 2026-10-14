@@ -2,13 +2,13 @@
 
 ## Supported versions
 
-This fork ([kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers)) is maintained separately from upstream [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers). Security fixes apply to **the latest release on the default branch (`master`) only**. Older tags and marketplace versions are not supported unless explicitly noted in a security advisory.
+This fork ([kyto64/vscode-line-ref-copy](https://github.com/kyto64/vscode-line-ref-copy)) is maintained separately from upstream [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers). Security fixes apply to **the latest release on the default branch (`master`) only**. Older tags and marketplace versions are not supported unless explicitly noted in a security advisory.
 
 ## Reporting a vulnerability
 
 **Please do not open public GitHub issues for security vulnerabilities.**
 
-Use [GitHub private vulnerability reporting](https://github.com/kyto64/vscode-copy-with-line-numbers/security/advisories/new) for this repository. Maintainers will acknowledge reports and coordinate disclosure.
+Use [GitHub private vulnerability reporting](https://github.com/kyto64/vscode-line-ref-copy/security/advisories/new) for this repository. Maintainers will acknowledge reports and coordinate disclosure.
 
 If private reporting is unavailable, contact the repository owner via GitHub with minimal details and request a secure channel.
 

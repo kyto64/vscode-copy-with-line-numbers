@@ -15,7 +15,7 @@ Setup guide for Claude Code, Cursor, and Codex CLI.
 
 This repo adopted [aidd-template-lean](https://github.com/kyto64/aidd-template-lean) for AI settings and `docs/` SSOT. Clone:
 
-`git clone https://github.com/kyto64/vscode-copy-with-line-numbers.git`
+`git clone https://github.com/kyto64/vscode-line-ref-copy.git`
 
 ## 2. Configure GitHub labels
 

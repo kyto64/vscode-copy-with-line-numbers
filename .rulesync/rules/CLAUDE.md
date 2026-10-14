@@ -11,7 +11,7 @@ globs:
 -->
 # Project overview
 
-**Line Ref Copy** (`line-ref-copy`) — VS Code extension that copies the current selection to the clipboard with line numbers (and optional file path). Fork maintained at [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers); upstream by [yassh](https://github.com/yassh/vscode-copy-with-line-numbers).
+**Line Ref Copy** (`line-ref-copy`) — VS Code extension that copies the current selection to the clipboard with line numbers (and optional file path). Fork maintained at [kyto64/vscode-line-ref-copy](https://github.com/kyto64/vscode-line-ref-copy); upstream by [yassh](https://github.com/yassh/vscode-copy-with-line-numbers).
 
 ## Tech stack
 

@@ -2,7 +2,7 @@
 
 ## Vulnerability reporting
 
-Public policy: [SECURITY.md](../../SECURITY.md) (English). Reports use [GitHub private vulnerability reporting](https://github.com/kyto64/vscode-copy-with-line-numbers/security/advisories/new). This repository is a **fork** of [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers); security support applies to the **latest release on the default branch (`master`) only**.
+Public policy: [SECURITY.md](../../SECURITY.md) (English). Reports use [GitHub private vulnerability reporting](https://github.com/kyto64/vscode-line-ref-copy/security/advisories/new). This repository is a **fork** of [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers); security support applies to the **latest release on the default branch (`master`) only**.
 
 ## Dependency updates
 

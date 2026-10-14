@@ -2,7 +2,7 @@
 
 ## Repository
 
-- **GitHub**: [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers)
+- **GitHub**: [kyto64/vscode-line-ref-copy](https://github.com/kyto64/vscode-line-ref-copy)
 - **Default branch**: `master`
 - **License**: MIT (Copyright yassh and kyto64; see `LICENSE`)
 

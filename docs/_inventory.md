@@ -1,6 +1,6 @@
 # Documentation inventory
 
-Single Source of Truth (SSOT) boundaries for **Line Ref Copy** (`line-ref-copy`, fork [kyto64/vscode-copy-with-line-numbers](https://github.com/kyto64/vscode-copy-with-line-numbers)).
+Single Source of Truth (SSOT) boundaries for **Line Ref Copy** (`line-ref-copy`, fork [kyto64/vscode-line-ref-copy](https://github.com/kyto64/vscode-line-ref-copy)).
 
 ## SSOT boundary table
 
