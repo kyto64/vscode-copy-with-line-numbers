@@ -3,20 +3,6 @@ name: Check rulesync
 on:
   pull_request:
     branches: [master]
-    paths:
-      - ".rulesync/**"
-      - "rulesync.jsonc"
-      - "CLAUDE.md"
-      - "AGENTS.md"
-      - ".claude/rules/**"
-      - ".claude/skills/**"
-      - ".claude/settings.json"
-      - ".agents/skills/**"
-      - ".mcp.json"
-      - ".codex/memories/**"
-      - ".cursor/rules/**"
-      - ".github/dependabot.yml"
-      - ".github/workflows/check_rulesync.yaml"
   push:
     branches: [master]
     paths:

@@ -26,8 +26,10 @@ async function copyWithLineNumbers(option?) {
 
   const document = editor.document
   const fullPath = document.fileName
-  const relativePath = vscode.workspace.workspaceFolders ?
-    path.relative(vscode.workspace.workspaceFolders[0].uri.fsPath, fullPath) : fullPath
+  const workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri)
+  const relativePath = workspaceFolder
+    ? path.relative(workspaceFolder.uri.fsPath, fullPath)
+    : fullPath
   const fileName = path.basename(fullPath)
 
   let file = ''
