@@ -46,7 +46,7 @@
     "@eslint/js": "^10.0.1",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.13.14",
-    "@types/vscode": "1.140.0",
+    "@types/vscode": "~1.74.0",
     "@vscode/test-electron": "^3.1.0",
     "eslint": "^10.12.0",
     "glob": "^13.0.0",
@@ -56,7 +56,7 @@
   },
   "displayName": "Copy With Line Numbers",
   "engines": {
-    "vscode": "^1.140.0"
+    "vscode": "^1.74.0"
   },
   "icon": "images/icon.png",
   "keywords": [
