@@ -1,0 +1,19 @@
+{
+  "permission": {
+    "bash": {
+      "git *": "allow",
+      "cd *": "allow",
+      "ls *": "allow",
+      "gh pr *": "allow",
+      "gh api *": "allow",
+      "gh issue *": "allow",
+      "rm -rf /": "deny",
+      "gh repo delete*": "deny"
+    },
+    "read": { "*": "allow" },
+    "write": { "*": "allow" },
+    "edit": { "*": "allow" },
+    "grep": { "*": "allow" },
+    "glob": { "*": "allow" }
+  }
+}

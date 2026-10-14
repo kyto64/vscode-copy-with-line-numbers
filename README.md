@@ -18,3 +18,7 @@ This package is an imitation of [Copy With Line Numbers Reloaded](https://packag
 |Property|Description|Type|Default value|
 |---|---|---|---|
 |`copyWithLineNumbers.showSuccessMessage`|Show success message.|Boolean|`true`|
+
+## Development
+
+Specifications and contributor workflow live under [`docs/`](./docs/) (SSOT). AI tool settings are managed with [rulesync](https://github.com/dyoshikawa/rulesync) from [`.rulesync/`](./.rulesync/) — see [docs/development/rulesync.md](./docs/development/rulesync.md).
