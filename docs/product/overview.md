@@ -1,8 +1,8 @@
 # Product overview
 
-**Copy With Line Numbers** adds editor commands that copy the current selection to the system clipboard with prefixed line numbers, optionally including file path metadata.
+**Line Ref Copy** adds editor commands that copy the current selection to the system clipboard with prefixed line numbers, optionally including file path metadata.
 
-Inspired by [Copy With Line Numbers Reloaded](https://packagecontrol.io/packages/CopyWithLineNumbersReloaded) for Sublime Text.
+Fork of [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers) (MIT). Inspired by [Copy With Line Numbers Reloaded](https://packagecontrol.io/packages/CopyWithLineNumbersReloaded) for Sublime Text.
 
 ## Goals
 
@@ -14,16 +14,16 @@ Inspired by [Copy With Line Numbers Reloaded](https://packagecontrol.io/packages
 
 | Command ID | Title | Path in output |
 |------------|-------|----------------|
-| `extension.copyWithLineNumbers.withoutPath` | Copy With Line Numbers: Without Path | (none) |
-| `extension.copyWithLineNumbers.withFullPath` | Copy With Line Numbers: With Full Path | Absolute `document.fileName` |
-| `extension.copyWithLineNumbers.withRelativePath` | Copy With Line Numbers: With Relative Path | Relative to first workspace folder when one exists; otherwise falls back to the absolute `document.fileName` |
-| `extension.copyWithLineNumbers.withFileName` | Copy With Line Numbers: With File Name | Basename only |
+| `lineRefCopy.withoutPath` | Line Ref Copy: Without Path | (none) |
+| `lineRefCopy.withFullPath` | Line Ref Copy: With Full Path | Absolute `document.fileName` |
+| `lineRefCopy.withRelativePath` | Line Ref Copy: With Relative Path | Relative to the workspace folder that contains the document; otherwise absolute path |
+| `lineRefCopy.withFileName` | Line Ref Copy: With File Name | Basename only |
 
 When a path mode is used, the clipboard text starts with `File: <path>` followed by a platform-appropriate newline, then numbered lines.
 
 ## Editor context menu
 
-**Copy With Line Numbers: With Relative Path** (`extension.copyWithLineNumbers.withRelativePath`) appears in the **editor context menu** (right-click) when the editor has focus and a non-empty text selection (`editorTextFocus && editorHasSelection`). It is placed after the built-in Cut / Copy / Copy As / Paste entries (`9_cutcopypaste@5`). The other three commands remain Command Palette–only. The menu entry uses the same command handler as the palette; clipboard output is covered by integration tests in `test/suite/copy-with-line-numbers.test.ts`, and the menu contribution is asserted in `test/suite/package-manifest.test.ts`.
+**Line Ref Copy: With Relative Path** (`lineRefCopy.withRelativePath`) appears in the **editor context menu** (right-click) when the editor has focus and a non-empty text selection (`editorTextFocus && editorHasSelection`). It is placed after the built-in Cut / Copy / Copy As / Paste entries (`9_cutcopypaste@5`). The other three commands remain Command Palette–only. Clipboard output is covered by integration tests in `test/suite/copy-with-line-numbers.test.ts`; the menu contribution is asserted in `test/suite/package-manifest.test.ts`.
 
 ## Line format
 
@@ -36,7 +36,16 @@ When a path mode is used, the clipboard text starts with `File: <path>` followed
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| `copyWithLineNumbers.showSuccessMessage` | boolean | `true` | Show an information message after a successful copy |
+| `lineRefCopy.showSuccessMessage` | boolean | `true` | Show an information message after a successful copy |
+
+## Marketplace identity
+
+| Field | Value |
+|-------|--------|
+| Extension id (`name`) | `line-ref-copy` |
+| Display name | Line Ref Copy |
+| Publisher | `kyto64` |
+| Preview | `true` (0.1.0) |
 
 ## Out of scope
 

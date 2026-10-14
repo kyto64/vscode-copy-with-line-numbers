@@ -3,10 +3,10 @@ import * as path from 'path'
 import * as vscode from 'vscode'
 import { EOL } from 'os'
 
-export const COMMAND_WITHOUT_PATH = 'extension.copyWithLineNumbers.withoutPath'
-export const COMMAND_WITH_FULL_PATH = 'extension.copyWithLineNumbers.withFullPath'
-export const COMMAND_WITH_RELATIVE_PATH = 'extension.copyWithLineNumbers.withRelativePath'
-export const COMMAND_WITH_FILE_NAME = 'extension.copyWithLineNumbers.withFileName'
+export const COMMAND_WITHOUT_PATH = 'lineRefCopy.withoutPath'
+export const COMMAND_WITH_FULL_PATH = 'lineRefCopy.withFullPath'
+export const COMMAND_WITH_RELATIVE_PATH = 'lineRefCopy.withRelativePath'
+export const COMMAND_WITH_FILE_NAME = 'lineRefCopy.withFileName'
 
 export const fixturesRoot = path.resolve(__dirname, '../../../test/fixtures')
 

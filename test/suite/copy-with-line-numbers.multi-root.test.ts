@@ -10,7 +10,7 @@ import {
   withFileHeader,
 } from './test-utils'
 
-suite('copyWithLineNumbers (multi-root workspace)', () => {
+suite('lineRefCopy (multi-root workspace)', () => {
   test('withRelativePath uses the workspace folder that contains the file', async () => {
     const filePath = fixturePath('folder-b', 'b.txt')
     const editor = await openDocument(filePath)

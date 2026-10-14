@@ -1,48 +1,72 @@
 {
-  "name": "copy-with-line-numbers",
-  "description": "Copy selected lines with line number (and file path).",
-  "version": "0.0.4",
+  "name": "line-ref-copy",
+  "displayName": "Line Ref Copy",
+  "description": "Copy selected lines with line numbers and optional file path—ready to paste into issues, reviews, and chat.",
+  "version": "0.1.0",
+  "preview": true,
+  "publisher": "kyto64",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "copy",
+    "clipboard",
+    "line number",
+    "reference",
+    "paste"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyto64/vscode-copy-with-line-numbers.git"
+  },
   "bugs": {
     "url": "https://github.com/kyto64/vscode-copy-with-line-numbers/issues"
   },
   "homepage": "https://github.com/kyto64/vscode-copy-with-line-numbers#readme",
-  "categories": [
-    "Other"
-  ],
+  "main": "./out/src/extension",
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Copy With Line Numbers configuration",
+      "title": "Line Ref Copy",
       "properties": {
-        "copyWithLineNumbers.showSuccessMessage": {
+        "lineRefCopy.showSuccessMessage": {
           "type": "boolean",
           "default": true,
-          "description": "Show success message"
+          "description": "Show an information message after a successful copy."
         }
       }
     },
     "commands": [
       {
-        "command": "extension.copyWithLineNumbers.withoutPath",
-        "title": "Copy With Line Numbers: Without Path"
+        "command": "lineRefCopy.withoutPath",
+        "title": "Line Ref Copy: Without Path"
       },
       {
-        "command": "extension.copyWithLineNumbers.withFullPath",
-        "title": "Copy With Line Numbers: With Full Path"
+        "command": "lineRefCopy.withFullPath",
+        "title": "Line Ref Copy: With Full Path"
       },
       {
-        "command": "extension.copyWithLineNumbers.withRelativePath",
-        "title": "Copy With Line Numbers: With Relative Path"
+        "command": "lineRefCopy.withRelativePath",
+        "title": "Line Ref Copy: With Relative Path"
       },
       {
-        "command": "extension.copyWithLineNumbers.withFileName",
-        "title": "Copy With Line Numbers: With File Name"
+        "command": "lineRefCopy.withFileName",
+        "title": "Line Ref Copy: With File Name"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "extension.copyWithLineNumbers.withRelativePath",
+          "command": "lineRefCopy.withRelativePath",
           "when": "editorTextFocus && editorHasSelection",
           "group": "9_cutcopypaste@5"
         }
@@ -58,27 +82,12 @@
     "@types/node": "^24.0.0",
     "@types/vscode": "~1.74.0",
     "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "3.7.1",
     "eslint": "^10.12.0",
     "glob": "^13.0.0",
     "mocha": "^12.0.3",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.28.0"
-  },
-  "displayName": "Copy With Line Numbers",
-  "engines": {
-    "vscode": "^1.74.0"
-  },
-  "icon": "images/icon.png",
-  "keywords": [
-    "copy",
-    "line number"
-  ],
-  "license": "MIT",
-  "main": "./out/src/extension",
-  "publisher": "yassh",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kyto64/vscode-copy-with-line-numbers.git"
   },
   "scripts": {
     "compile": "tsc -p ./",
@@ -86,6 +95,8 @@
     "lint:fix": "eslint . --fix",
     "test": "npm run compile && node ./out/test/runTest.js",
     "vscode:prepublish": "npm run compile",
+    "vsce:ls": "vsce ls",
+    "vsce:package": "vsce package",
     "watch": "tsc -watch -p ./"
   }
 }
