@@ -25,7 +25,7 @@ src/copy-with-line-numbers.ts
 ## Copy pipeline
 
 1. **Guard**: If no active editor, show `No editor is active` and return.
-2. **Path header** (optional): Based on command variant, set `file` from `document.fileName`, workspace-relative path, or basename; prefix `File: ${file}${EOL}` when non-empty.
+2. **Path header** (optional): Based on command variant, set `file` from `document.fileName`, path relative to the workspace folder that contains the document (`getWorkspaceFolder`), or basename; prefix `File: ${file}${EOL}` when non-empty. Files outside any workspace folder use the full path for the relative-path variant.
 3. **Selections**: Sort `editor.selections` by start line; for each range, emit lines from `start.line` through `end.line`.
 4. **Numbering**: Sort selections by `start.line`, take the last selection’s `end.line + 1` as the width reference, then `left-pad` each line number with character `0`.
 5. **Clipboard**: `await vscode.env.clipboard.writeText(str)`; on success optionally show `Copied!` per `copyWithLineNumbers.showSuccessMessage`; on failure show error with message.

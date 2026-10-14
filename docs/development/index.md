@@ -9,3 +9,4 @@ Workflow, tooling, and contributor guides.
 | [language-policy.md](./language-policy.md) | English docs vs Japanese Issues/PRs |
 | [ticket-driven-setup.md](./ticket-driven-setup.md) | Issue-driven workflow setup |
 | [rulesync.md](./rulesync.md) | AI tool settings (rulesync) |
+| [testing.md](./testing.md) | `@vscode/test-electron` integration tests |
