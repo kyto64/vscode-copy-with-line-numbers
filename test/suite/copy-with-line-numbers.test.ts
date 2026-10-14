@@ -177,13 +177,17 @@ suite('copyWithLineNumbers', () => {
     test('copies CRLF file line text with platform EOL in output', async () => {
       const filePath = fixturePath('crlf-sample.txt')
       const editor = await openDocument(filePath)
+      assert.strictEqual(editor.document.eol, vscode.EndOfLine.CRLF)
       setSelection(editor, 0, 0, 1, 8)
 
       await runCopyCommand(COMMAND_WITHOUT_PATH, editor)
       const clipboard = await readClipboard()
 
       assert.strictEqual(clipboard, formatLines([1, 2], ['line one', 'line two'], 1))
-      assert.ok(!clipboard.includes('\r'), 'clipboard should not contain carriage returns from source lines')
+      const copiedLineTexts = clipboard.split(EOL).filter((line) => line.length > 0)
+      copiedLineTexts.forEach((line) => {
+        assert.ok(!line.includes('\r'), 'line text should not retain source CR characters')
+      })
     })
   })
 })
