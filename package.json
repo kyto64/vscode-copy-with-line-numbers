@@ -46,13 +46,12 @@
     ]
   },
   "dependencies": {
-    "copy-paste": "^1.3.0",
     "left-pad": "^1.1.3"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
     "@types/node": "^7.0.43",
-    "@types/vscode": "^1.16.0",
+    "@types/vscode": "^1.31.0",
     "fixpack": "^2.3.1",
     "mocha": "^3.5.0",
     "npm-run-all": "^4.1.1",
@@ -62,7 +61,7 @@
   },
   "displayName": "Copy With Line Numbers",
   "engines": {
-    "vscode": "^1.16.0"
+    "vscode": "^1.31.0"
   },
   "icon": "images/icon.png",
   "keywords": [

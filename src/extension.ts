@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   Object.keys(commands).forEach((key) => {
     const command = commands[key]
-    subscriptions.push(registerCommand(key, () => { command() }))
+    subscriptions.push(registerCommand(key, command))
   })
 }
 

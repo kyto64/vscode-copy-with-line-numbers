@@ -3,7 +3,6 @@
 import * as vscode from 'vscode'
 import * as path from 'path'
 import { EOL } from 'os'
-import { copy } from 'copy-paste'
 import * as leftPad from 'left-pad'
 
 const COPY_WITH_LINE_NUMBERS = 'extension.copyWithLineNumbers'
@@ -18,7 +17,7 @@ const OPTION_WITH_FILE_NAME = 'withFileName'
 
 const MULTI_SELECTION_SEPARATOR = '---'
 
-function copyWithLineNumbers(option?) {
+async function copyWithLineNumbers(option?) {
   const editor = vscode.window.activeTextEditor
   if (!editor) {
     vscode.window.showInformationMessage('No editor is active')
@@ -64,23 +63,23 @@ function copyWithLineNumbers(option?) {
     }
   })
 
-  copy(str, () => {
+  // Clipboard API replacement inspired by mrVanDalo (MIT):
+  // https://github.com/mrVanDalo/vscode-copy-with-line-numbers/commit/ed98faa429a2be20bc74f206e8fdb9e8e5e91608
+  try {
+    await vscode.env.clipboard.writeText(str)
     const showSuccessMessage = vscode.workspace.getConfiguration('copyWithLineNumbers').get('showSuccessMessage')
-    if (showSuccessMessage) vscode.window.showInformationMessage('Copied!')
-  })
+    if (showSuccessMessage) {
+      vscode.window.showInformationMessage('Copied!')
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    vscode.window.showErrorMessage(`Failed to copy to clipboard: ${message}`)
+  }
 }
 
 export const commands = {
-  [COPY_WITH_LINE_NUMBERS_WITHOUT_PATH]: () => {
-    copyWithLineNumbers()
-  },
-  [COPY_WITH_LINE_NUMBERS_WITH_FULL_PATH]: () => {
-    copyWithLineNumbers(OPTION_WITH_FULL_PATH)
-  },
-  [COPY_WITH_LINE_NUMBERS_WITH_RELATIVE_PATH]: () => {
-    copyWithLineNumbers(OPTION_WITH_RELATIVE_PATH)
-  },
-  [COPY_WITH_LINE_NUMBERS_WITH_FILE_NAME]: () => {
-    copyWithLineNumbers(OPTION_WITH_FILE_NAME)
-  },
+  [COPY_WITH_LINE_NUMBERS_WITHOUT_PATH]: () => copyWithLineNumbers(),
+  [COPY_WITH_LINE_NUMBERS_WITH_FULL_PATH]: () => copyWithLineNumbers(OPTION_WITH_FULL_PATH),
+  [COPY_WITH_LINE_NUMBERS_WITH_RELATIVE_PATH]: () => copyWithLineNumbers(OPTION_WITH_RELATIVE_PATH),
+  [COPY_WITH_LINE_NUMBERS_WITH_FILE_NAME]: () => copyWithLineNumbers(OPTION_WITH_FILE_NAME),
 }
