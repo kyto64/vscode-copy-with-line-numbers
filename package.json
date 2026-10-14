@@ -90,7 +90,7 @@
     "compile": "tsc -p ./",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "rules:generate": "npx --yes rulesync@8.17.0 generate",
+    "rules:generate": "npx --yes rulesync@33.0.0 generate",
     "test": "npm run compile && node ./out/test/runTest.js",
     "vscode:prepublish": "npm run compile",
     "vsce:ls": "vsce ls",

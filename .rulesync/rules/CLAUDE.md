@@ -7,11 +7,25 @@ globs:
 ---
 <!--
   SSOT: Edit .rulesync/ and run `npm run rules:generate`.
-  Generated for Cursor: AGENTS.md and .cursor/ (see rulesync.jsonc targets).
+  Generated for Devin: AGENTS.md and .agents/skills/ (see rulesync.jsonc targets).
 -->
 # Project overview
 
 **Line Ref Copy** (`line-ref-copy`) — VS Code extension that copies the current selection to the clipboard with line numbers (and optional file path). Fork maintained at [kyto64/vscode-line-ref-copy](https://github.com/kyto64/vscode-line-ref-copy); upstream by [yassh](https://github.com/yassh/vscode-copy-with-line-numbers).
+
+## Setup and quality gates
+
+Node.js 24 (matches CI). Devin environment: `.devin/blueprint.yaml`.
+
+```bash
+npm ci
+npm run lint
+npm run compile
+xvfb-run -a npm test   # Linux headless; elsewhere `npm test`
+npm run rules:generate # after .rulesync/ edits; must leave no diff
+```
+
+CI required checks: `build` (`.github/workflows/ci.yml`) and `check-rulesync` (`.github/workflows/check_rulesync.yaml`).
 
 ## Tech stack
 
@@ -38,20 +52,22 @@ User-facing install/usage summary remains in [README.md](./README.md).
 
 Ticket-driven development using GitHub Issues. Setup: [docs/development/ticket-driven-setup.md](./docs/development/ticket-driven-setup.md).
 
-Skills live under `.rulesync/skills/` (SSOT). This repo’s `rulesync.jsonc` generates **Cursor only** (`cursor` + `agentsmd` targets); Claude/Codex outputs are not generated here (differs from [aidd-template-lean](https://github.com/kyto64/aidd-template-lean)).
+Skills live under `.rulesync/skills/` (SSOT). This repo’s `rulesync.jsonc` generates **Devin-facing outputs only** (`agentsmd` rules + `agentsskills` skills); Cursor/Claude/Codex outputs are not generated here (differs from [aidd-template-lean](https://github.com/kyto64/aidd-template-lean)).
 
 - `/start-ticket <issue-number>` — start issue, plan, implement, open PR
 - `/address-pr-feedback <pr-number>` — address review feedback
 - `/close-ticket <issue-number>` — post-merge docs update
 - `/spec-lookup` — answer from `docs/` (code when needed)
 
-### Cursor
+### Devin
 
-- Project rules: `.rulesync/rules/` → `npm run rules:generate` → `.cursor/rules/` and root `AGENTS.md`
+- Project rules: `.rulesync/rules/` (all `root: true`) → `npm run rules:generate` → single root `AGENTS.md`
+- Skills: `.rulesync/skills/` → `npm run rules:generate` → `.agents/skills/*/SKILL.md`
+- Environment: `.devin/blueprint.yaml` (Node 24, xvfb + VS Code test libraries, `npm ci`, lint/build/test knowledge)
 
 ## AI settings changes
 
-Edit `.rulesync/` only, then `npm run rules:generate`. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.cursor/`** (see `docs/development/rulesync.md`).
+Edit `.rulesync/` only, then `npm run rules:generate`. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.agents/skills/`** (see `docs/development/rulesync.md`). Keep `AGENTS.md` under 16 KiB.
 
 ## Language
 

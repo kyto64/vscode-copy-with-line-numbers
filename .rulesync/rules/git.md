@@ -1,12 +1,10 @@
 ---
-root: false
+root: true
 targets:
   - '*'
 description: "Git conventions"
 globs:
   - '**/*'
-cursor:
-  alwaysApply: true
 ---
 # Git conventions
 
@@ -15,9 +13,9 @@ cursor:
 - `feature/<issue-number>` — features and enhancements (e.g. `feature/42`)
 - `fix/<issue-number>` — bug fixes
 - `chore/<issue-number>` — tooling, docs-only, dependency chores
-- `cursor/<description>` — **allowed exception** for Cursor Cloud Agent automation (e.g. `cursor/adopt-aidd-template-3092`); not a substitute for human ticket worktrees
+- `devin/<unix-timestamp>-<description>` — **allowed exception** for Devin sessions (Devin's default branch naming, e.g. `devin/1700000000-fix-copy-path`); not a substitute for human ticket worktrees
 
-Create implementation branches with **git worktree** only (see `git-worktree.md`). Do not `git checkout -b` on the main working tree for ticket work. Cloud Agent branches under `cursor/` are exempt from the `feature/<issue>` pattern only.
+Create implementation branches with **git worktree** only (see **Git worktree workflow** above). Do not `git checkout -b` on the main working tree for ticket work. Devin branches under `devin/` are exempt from the `feature/<issue>` pattern only.
 
 Base branch for PRs: **`master`**.
 
@@ -48,5 +46,5 @@ git add path/to/file1 path/to/file2
 
 - Title: `feat(#42): short summary`
 - Base: `master`
-- Body: follow [`.github/pull_request_template.md`](../../.github/pull_request_template.md)
+- Body: follow [`.github/pull_request_template.md`](./.github/pull_request_template.md)
 - Include `Fixes #<issue>` in the body so GitHub closes the issue on merge to `master`

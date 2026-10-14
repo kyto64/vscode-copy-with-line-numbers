@@ -1,7 +1,0 @@
-# Ticket-driven workflow
-
-- Setup: [docs/development/ticket-driven-setup.md](../../docs/development/ticket-driven-setup.md)
-- Skills SSOT: `.rulesync/skills/` (`/start-ticket`, `/address-pr-feedback`, `/close-ticket`, `/spec-lookup`)
-- This repo generates Cursor rules only (`rulesync.jsonc`); skills are not exported to `.claude/skills/` here
-- Invoke with issue or PR number: `/start-ticket 42`, `/close-ticket 42`
-- PR status/diff/comments: prefer **`gh`** (see `github-cli-pr.md`)

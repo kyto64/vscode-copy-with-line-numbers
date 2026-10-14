@@ -41,4 +41,4 @@ Issue number: **$ARGUMENTS**
 
 ## Step 4: Cleanup (optional)
 
-Remind user to remove worktree per `git-worktree.md` when done.
+Remind user to remove worktree per **Git worktree workflow** in `AGENTS.md` when done.

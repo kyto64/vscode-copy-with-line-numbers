@@ -1,12 +1,10 @@
 ---
-root: false
+root: true
 targets:
   - '*'
 description: "GitHub CLI — PR and Issues"
 globs:
   - '**/*'
-cursor:
-  alwaysApply: true
 ---
 # GitHub CLI — PR and Issues
 

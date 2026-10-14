@@ -1,6 +1,6 @@
 # Ticket-driven development setup
 
-Setup guide for Claude Code, Cursor, and Codex CLI.
+Setup guide for Devin (and humans working alongside it).
 
 ## Prerequisites
 
@@ -8,7 +8,7 @@ Setup guide for Claude Code, Cursor, and Codex CLI.
 |------|----------|
 | Git | Yes |
 | GitHub CLI (`gh`) v2.82.1+ | Yes |
-| rulesync 8.17.0 | Yes (`npm install -g rulesync@8.17.0`) |
+| rulesync 33.0.0 | Yes (`npm run rules:generate` uses `npx rulesync@33.0.0`) |
 | Node.js 24+ | Yes (matches CI; for rulesync locally) |
 
 ## 1. Repository
@@ -32,7 +32,7 @@ New repositories may have Actions disabled. Enable in repository Settings → Ac
 
 ## 4. Personal MCP (optional)
 
-Project MCP SSOT is `.rulesync/mcp.json` (empty). Claude/Codex MCP outputs are **not** generated in this repo (Cursor-only `rulesync.jsonc`). Personal MCP servers stay in user settings.
+Project MCP SSOT is `.rulesync/mcp.json` (empty). MCP outputs are **not** generated in this repo (Devin-only `rulesync.jsonc`: `agentsmd` + `agentsskills`). Personal MCP servers stay in user settings.
 
 ## 5. rulesync
 
@@ -40,11 +40,11 @@ Edit `.rulesync/` only, then:
 
 ```bash
 npm run rules:generate
-git add .rulesync/ rulesync.jsonc AGENTS.md .cursor/ .agents/
+git add .rulesync/ rulesync.jsonc AGENTS.md .agents/
 git commit -m "chore: update AI tool SSOT"
 ```
 
-CI runs `rulesync generate` and diffs **`AGENTS.md`**, **`.cursor/`**, and **`.agents/`** on every PR (see [rulesync.md](./rulesync.md)).
+CI runs `rulesync generate` and diffs **`AGENTS.md`** and **`.agents/`** on every PR (see [rulesync.md](./rulesync.md)).
 
 ## 6. Verify skills
 
@@ -55,13 +55,13 @@ CI runs `rulesync generate` and diffs **`AGENTS.md`**, **`.cursor/`**, and **`.a
 | `/close-ticket 1` | Post-merge docs for issue #1 |
 | `/spec-lookup` | Query docs |
 
-Skills live in `.rulesync/skills/`; regenerate rules with `npm run rules:generate` after SSOT edits.
+Skills live in `.rulesync/skills/` (SSOT) and are generated to `.agents/skills/`; regenerate with `npm run rules:generate` after SSOT edits.
 
 ## 7. Worktree rule
 
-Implementation branches must use git worktree (see `.rulesync/rules/git-worktree.md`). Do not branch on the default-branch working tree (`master`).
+Implementation branches must use git worktree (see **Git worktree workflow** in [`AGENTS.md`](../../AGENTS.md)). Do not branch on the default-branch working tree (`master`).
 
-**Exception:** Cursor Cloud Agent branches named `cursor/<description>` are allowed without the `feature/<issue>` pattern (see `.rulesync/rules/git.md`).
+**Exception:** Devin session branches named `devin/<unix-timestamp>-<description>` are allowed without the `feature/<issue>` pattern (see `.rulesync/rules/git.md`).
 
 ## 8. Language
 

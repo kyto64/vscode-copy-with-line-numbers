@@ -1,12 +1,10 @@
 ---
-root: false
+root: true
 targets:
   - '*'
 description: "Coding conventions"
 globs:
   - '**/*'
-cursor:
-  alwaysApply: true
 ---
 # Coding conventions
 
@@ -18,7 +16,7 @@ cursor:
 
 ## Language
 
-- `README.md` and `docs/`: English (see [docs/development/language-policy.md](../../docs/development/language-policy.md)).
+- `README.md` and `docs/`: English (see [docs/development/language-policy.md](./docs/development/language-policy.md)).
 - GitHub Issues and PR titles/bodies: Japanese.
 - Code comments and identifiers: English.
 
