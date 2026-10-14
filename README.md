@@ -2,6 +2,10 @@
 
 Copy selected lines with line numbers and optional file path—ready to paste into issues, reviews, and chat.
 
+![Line Ref Copy demo](images/demo.gif)
+
+*Demo: select lines, right-click **Line Ref Copy: With Relative Path**, then paste—clipboard includes `File: …` and numbered lines.*
+
 > **Credit:** This extension is a fork of [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers) (MIT). Thank you to the original author **yassh**.
 
 ## Changes in this fork (kyto64)
