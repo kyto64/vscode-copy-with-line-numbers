@@ -27,6 +27,19 @@ Permissions: `contents: read` at workflow scope; jobs use least privilege. Actio
 
 Dependabot (weekly, grouped minor/patch): `.github/dependabot.yml`. Security policy: `SECURITY.md`. Details: [security.md](./security.md).
 
+### Node.js version (CI and types)
+
+As of **2026-10-14**, [Node.js releases](https://nodejs.org/en/about/previous-releases) list **v24 (Krypton)** as **LTS** and **v26** as **Current** (not yet LTS). Production-style CI therefore pins **`node-version: "24"`** explicitly in `ci.yml` and `check_rulesync.yaml` (no `lts/*` vs `"22"` split).
+
+| Runtime | Node major | Notes |
+|---------|------------|--------|
+| GitHub Actions (`npm ci`, compile, lint, test) | **24** | Active LTS line for toolchain |
+| VS Code extension host (`engines.vscode` `^1.74.0` minimum) | **16** | [vscode-versions](https://github.com/ewanharris/vscode-versions) for 1.74.x |
+
+`@types/node` **major** is kept aligned with **CI Node** (24), not with the newest npm major (e.g. 26) nor with the oldest extension-host Node. That keeps TypeScript checking consistent with how we build and test, while avoiding Dependabot jumps ahead of CI. Extension code should stick to APIs available in the supported VS Code host (primarily `vscode` APIs); do not rely on Node APIs newer than the minimum host without guards.
+
+Dependabot ignores `@types/node` **major** bumps in `.github/dependabot.yml`; bump `@types/node` major when CI Node major changes.
+
 ## Local verification
 
 ```bash
@@ -46,6 +59,7 @@ npm test          # headless Linux: xvfb-run -a npm test
 | ESLint 10 + `typescript-eslint` | Lint (`eslint.config.mjs`; ignores `out/`, `node_modules/`, `.vscode-test/`) |
 | `@vscode/test-electron` | Download VS Code build and run extension tests |
 | `engines.vscode` | `^1.74.0` (`@types/vscode` ~1.74.0) |
+| Node.js (CI) | **24** (Active LTS); `@types/node` ^24 |
 
 ## Release / marketplace
 
