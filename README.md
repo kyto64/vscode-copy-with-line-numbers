@@ -8,7 +8,7 @@ This package is an imitation of [Copy With Line Numbers Reloaded](https://packag
 
 ## Available commands
 
-Run from the **Command Palette** or the **editor context menu** (right-click when text is selected).
+Run from the **Command Palette** (all variants below). **With Relative Path** is also available from the editor context menu when text is selected (right-click).
 
 * Copy With Line Numbers: Without Path
 * Copy With Line Numbers: With Full Path

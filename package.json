@@ -42,24 +42,9 @@
     "menus": {
       "editor/context": [
         {
-          "command": "extension.copyWithLineNumbers.withoutPath",
-          "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@5"
-        },
-        {
-          "command": "extension.copyWithLineNumbers.withFullPath",
-          "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@6"
-        },
-        {
           "command": "extension.copyWithLineNumbers.withRelativePath",
           "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@7"
-        },
-        {
-          "command": "extension.copyWithLineNumbers.withFileName",
-          "when": "editorTextFocus && editorHasSelection",
-          "group": "9_cutcopypaste@8"
+          "group": "9_cutcopypaste@5"
         }
       ]
     }
