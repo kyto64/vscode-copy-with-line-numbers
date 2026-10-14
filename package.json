@@ -52,13 +52,13 @@
   "devDependencies": {
     "@types/mocha": "^2.2.42",
     "@types/node": "^7.0.43",
+    "@types/vscode": "^1.16.0",
     "fixpack": "^2.3.1",
     "mocha": "^3.5.0",
     "npm-run-all": "^4.1.1",
     "tslint": "^5.7.0",
     "tslint-config-airbnb": "^5.2.1",
-    "typescript": "^2.5.2",
-    "vscode": "^1.1.5"
+    "typescript": "^2.5.2"
   },
   "displayName": "Copy With Line Numbers",
   "engines": {
@@ -83,8 +83,7 @@
     "fix:ts": "tslint './*.ts' './src/*.ts' './test/*.ts' --fix",
     "lint": "npm-run-all lint:*",
     "lint:ts": "tslint './*.ts' './src/*.ts' './test/*.ts'",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "test": "npm run compile",
     "vscode:prepublish": "npm run compile",
     "watch": "tsc -watch -p ./"
   }
