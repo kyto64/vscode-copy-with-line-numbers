@@ -15,6 +15,7 @@ on:
       - ".mcp.json"
       - ".codex/memories/**"
       - ".cursor/rules/**"
+      - ".github/dependabot.yml"
       - ".github/workflows/check_rulesync.yaml"
   push:
     branches: [master]
@@ -30,6 +31,7 @@ on:
       - ".mcp.json"
       - ".codex/memories/**"
       - ".cursor/rules/**"
+      - ".github/dependabot.yml"
       - ".github/workflows/check_rulesync.yaml"
 
 env:
