@@ -8,11 +8,10 @@ node_modules
 *.log
 
 # rulesync generated outputs (SSOT: .rulesync/, rulesync.jsonc)
+# Committed for Cursor: AGENTS.md, .cursor/ (see docs/development/rulesync.md)
 .claude/
 .codex/
-.cursor/rules/
 .cursor/plans/
 .agents/
 CLAUDE.md
-AGENTS.md
 .mcp.json

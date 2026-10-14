@@ -32,11 +32,10 @@ Run from the **Command Palette** (all variants). **With Relative Path** is also 
 
 ## Development
 
-Specifications and contributor workflow live under [`docs/`](./docs/) (SSOT). AI tool settings SSOT is [`.rulesync/`](./.rulesync/); after clone run `npm run rules:generate` (see [docs/development/rulesync.md](./docs/development/rulesync.md)).
+Specifications and contributor workflow live under [`docs/`](./docs/) (SSOT). AI settings SSOT is [`.rulesync/`](./.rulesync/); **`AGENTS.md`** and **`.cursor/`** are committed for Cursor (regenerate after SSOT edits — see [docs/development/rulesync.md](./docs/development/rulesync.md)).
 
 ```bash
 npm ci
-npm run rules:generate
 npm run compile
 npm run lint
 xvfb-run -a npm test   # Linux headless

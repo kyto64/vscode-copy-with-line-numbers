@@ -57,7 +57,7 @@ Skills (`.claude/skills/`):
 
 ## AI settings changes
 
-Edit `.rulesync/` only, then `npm run rules:generate`. Commit **only** `.rulesync/` and `rulesync.jsonc`. Do not commit or edit generated outputs (see `docs/development/rulesync.md`).
+Edit `.rulesync/` only, then `npm run rules:generate`. Commit `.rulesync/`, `rulesync.jsonc`, **`AGENTS.md`**, and **`.cursor/`** (Cursor cloud agents). Other tool outputs stay gitignored (see `docs/development/rulesync.md`).
 
 ## Language
 

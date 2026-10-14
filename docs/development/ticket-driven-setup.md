@@ -40,11 +40,11 @@ Edit `.rulesync/` only, then:
 
 ```bash
 npm run rules:generate
-git add .rulesync/ rulesync.jsonc
+git add .rulesync/ rulesync.jsonc AGENTS.md .cursor/
 git commit -m "chore: update AI tool SSOT"
 ```
 
-CI runs `rulesync generate` and `rulesync generate --check` on every PR (generated outputs stay local; see [rulesync.md](./rulesync.md)).
+CI runs `rulesync generate` and diffs **`AGENTS.md`** and **`.cursor/`** on every PR (see [rulesync.md](./rulesync.md)).
 
 ## 6. Verify skills
 

@@ -3,6 +3,7 @@
 .github/**
 .rulesync/**
 .cursor/**
+AGENTS.md
 .claude/**
 .codex/**
 .agents/**

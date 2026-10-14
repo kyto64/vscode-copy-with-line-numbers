@@ -22,7 +22,7 @@ Permissions: `contents: read` at workflow scope; jobs use least privilege. Actio
 | Workflow | Role |
 |----------|------|
 | `ci.yml` | `npm ci`, compile, eslint, `xvfb-run` tests |
-| `check_rulesync.yaml` | `rulesync generate` + `--check` on every PR (SSOT only in git) |
+| `check_rulesync.yaml` | `rulesync generate` + diff `AGENTS.md` / `.cursor/` on every PR |
 | `scorecard.yml` | OpenSSF Scorecard (weekly + `master` push) |
 
 Dependabot (weekly, grouped minor/patch): `.github/dependabot.yml`. Security policy: `SECURITY.md`. Details: [security.md](./security.md).
