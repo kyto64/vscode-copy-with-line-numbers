@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.1 — 2026-10-15
+
+Documentation and development tooling update; no extension behavior changes. Still a preview release.
+
+### Added
+
+- Demo GIF in the README showing selection, context-menu copy, and paste with a relative path and line numbers.
+
+### Changed
+
+- Development tooling migrated from Cursor to Devin, with rulesync updated to 33.0.0 and contributor workflow improvements.
+
 ## 0.1.0 — 2026-10-14
 
 First preview release of **Line Ref Copy** (fork of [yassh/vscode-copy-with-line-numbers](https://github.com/yassh/vscode-copy-with-line-numbers)).
