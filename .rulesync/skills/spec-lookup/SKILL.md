@@ -6,6 +6,11 @@ targets:
   - claudecode
   - agentsskills
 disable-model-invocation: false
+devin:
+  allowed-tools:
+    - Read
+    - Grep
+    - Glob
 allowed-tools:
   - Read
   - Grep

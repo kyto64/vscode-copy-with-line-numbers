@@ -82,6 +82,7 @@
     "@vscode/vsce": "3.7.1",
     "eslint": "^10.12.0",
     "glob": "^13.0.0",
+    "js-yaml": "4.3.2",
     "mocha": "^12.0.3",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.28.0"
@@ -90,7 +91,7 @@
     "compile": "tsc -p ./",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "rules:generate": "npx --yes rulesync@33.0.0 generate",
+    "rules:generate": "npx --yes rulesync@33.0.0 generate && node .rulesync/apply-devin-frontmatter.mjs",
     "test": "npm run compile && node ./out/test/runTest.js",
     "vscode:prepublish": "npm run compile",
     "vsce:ls": "vsce ls",

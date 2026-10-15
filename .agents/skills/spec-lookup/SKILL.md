@@ -2,6 +2,10 @@
 name: spec-lookup
 description: |
   Answer questions from repository docs (docs/ first, code when needed).
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 # Spec lookup
 

@@ -35,7 +35,7 @@ docs/
 | `src/line-ref-copy.ts` | Selection formatting, clipboard write |
 | `package.json` | Extension manifest, commands, configuration |
 | `.github/workflows/ci.yml` | `npm ci`, compile, eslint, tests (`xvfb-run`) |
-| `.github/workflows/check_rulesync.yaml` | `rulesync generate` + diff `AGENTS.md` / `.agents/` (every PR) |
+| `.github/workflows/check_rulesync.yaml` | `npm run rules:generate` + drift check `AGENTS.md` / `.agents/` (every PR) |
 | `AGENTS.md`, `.agents/skills/` | Committed rulesync outputs (Devin) |
 | `.devin/blueprint.yaml` | Devin environment (Node 24, xvfb, `npm ci`, lint/build/test knowledge); after merge, run a manual **Sync** in the Devin UI (see `docs/development/rulesync.md`) |
 | `.github/workflows/scorecard.yml` | OpenSSF Scorecard supply-chain analysis |

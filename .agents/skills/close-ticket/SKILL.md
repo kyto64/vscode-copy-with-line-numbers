@@ -1,10 +1,10 @@
 ---
 name: close-ticket
-description: >
-  After PR merge: verify issue state, update docs, add closing comment if
-  needed.
-
+description: |
+  After PR merge: verify issue state, update docs, add closing comment if needed.
   Does not force-close if PR is not merged yet.
+triggers:
+  - user
 ---
 # Close ticket workflow
 

@@ -1,11 +1,10 @@
 ---
 name: start-ticket
-description: >
-  Start a GitHub Issue: fetch details, label in-progress, create worktree from
-  origin/master,
-
-  read docs, plan, implement, run quality gates when available, open PR with
-  Fixes #N.
+description: |
+  Start a GitHub Issue: fetch details, label in-progress, create worktree from origin/master,
+  read docs, plan, implement, run quality gates when available, open PR with Fixes #N.
+triggers:
+  - user
 ---
 # Start ticket workflow
 
@@ -40,7 +39,7 @@ Execute phases in order. Report completion after each phase.
 
 ## Phase 2: Plan
 
-1. Read relevant `docs/` (`docs/_inventory.md` → area index → detail files). Use `/spec-lookup` for quick lookups.
+1. Read relevant `docs/` (`docs/_inventory.md` → area index → detail files). Use `@skills:spec-lookup` for quick lookups.
 2. Grep/Glob for affected code paths.
 3. Present implementation plan; wait for user approval if scope is unclear.
 
